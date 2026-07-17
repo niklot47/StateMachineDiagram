@@ -637,8 +637,8 @@
       "number": 0,
       "name": "INIT",
       "isInitial": true,
-      "x": 1822,
-      "y": -338,
+      "x": 1862,
+      "y": -58,
       "actions": []
     },
     {
@@ -667,8 +667,8 @@
       "number": 20,
       "name": "FLASHING_ON",
       "isInitial": false,
-      "x": 1722,
-      "y": -98,
+      "x": 2262,
+      "y": -78,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -689,8 +689,8 @@
       "number": 21,
       "name": "FLASHING_OFF",
       "isInitial": false,
-      "x": 1722,
-      "y": 2,
+      "x": 2262,
+      "y": 22,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -1049,24 +1049,24 @@
     },
     {
       "id": "ibf92ykl",
-      "x": 1680,
-      "y": -160,
+      "x": 1720,
+      "y": 120,
       "targetNumber": 35,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "u3i4ni8c",
-      "x": 1980,
-      "y": -160,
+      "x": 2020,
+      "y": 120,
       "targetNumber": 20,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "xklp4kpj",
-      "x": 1740,
-      "y": 120,
+      "x": 2280,
+      "y": 140,
       "targetNumber": 20,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
