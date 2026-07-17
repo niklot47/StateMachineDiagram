@@ -1,0 +1,1641 @@
+{
+  "version": "1.0",
+  "name": "DISPOSER_WRAPPER_v26",
+  "steps": [
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "htvlhcwi",
+      "number": 1,
+      "name": "IDLE_WITH_BRAKE",
+      "isInitial": false,
+      "x": 942,
+      "y": 582,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ReleaseBrake",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_from_emptying",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EMPTYING_COUNT",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "0itjjbv3",
+      "number": 11,
+      "name": "ARM_HOME",
+      "isInitial": false,
+      "x": 722,
+      "y": 1062,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 4
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "iqq3fq2w",
+      "number": 12,
+      "name": "FIRE_HOME",
+      "isInitial": false,
+      "x": 722,
+      "y": 1262,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "u0uwn2da",
+      "number": 13,
+      "name": "END_HOME",
+      "isInitial": false,
+      "x": 722,
+      "y": 1382,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "NOT _from_emptying"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "_from_emptying"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_from_emptying",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "63g5qq5p",
+      "number": 21,
+      "name": "ARM_EMPTY",
+      "isInitial": false,
+      "x": 1302,
+      "y": 1082,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 1
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Velocity := VEL_EMPTY * Vel_factor",
+          "value": 0
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Position := 60 * Pos_factor"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "iv9dax4m",
+      "number": 31,
+      "name": "ARM_DISPOSE_FORWARD",
+      "isInitial": false,
+      "x": 1842,
+      "y": 1042,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 2
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "Round actual position to nearest 60°\n        #TargetPos := ((#PtP.ActPosition + (DINT#30 * #Pos_factor))\n        / (DINT#60 * #Pos_factor))\n        * (DINT#60 * #Pos_factor);\n        \n        // Wrap into modulo range\n        #TargetPos := #TargetPos MOD (DINT#360 * #Pos_factor);\n        \n        IF #TargetPos < 0 THEN\n            #TargetPos := #TargetPos + DINT#360 * #Pos_factor;\n        END_IF;\n        \n        // Calculate next disposal position\n        #TargetPos := #TargetPos\n        + DINT#60 * #Pos_factor\n        + UINT_TO_DINT(#OFFSET) * #Pos_factor;\n        \n        #TargetPos := #TargetPos MOD (DINT#360 * #Pos_factor);"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Position := TargetPos"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Velocity := VEL_DISP_FRW * Vel_factor",
+          "value": 0
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "45ajxci0",
+      "number": 0,
+      "name": "IDLE_NO_BRAKE",
+      "isInitial": true,
+      "x": 982,
+      "y": 282,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EMPTYING_COUNT",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "3w385q5i",
+      "number": 22,
+      "name": "FIRE_EMPTY",
+      "isInitial": false,
+      "x": 1302,
+      "y": 1302,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "on Rising Edge: "
+        },
+        {
+          "qualifier": "INC",
+          "target": "EMPTYING_COUNT"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "3d4m7fkh",
+      "number": 23,
+      "name": "END_EMPTY",
+      "isInitial": false,
+      "x": 1302,
+      "y": 1442,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_from_emptying",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "idzuiplu",
+      "number": 32,
+      "name": "FIRE_DISPOSE_FORWARD",
+      "isInitial": false,
+      "x": 1842,
+      "y": 1522,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "l61ocrvm",
+      "number": 33,
+      "name": "END_DISPOSE_FORWARD",
+      "isInitial": false,
+      "x": 1842,
+      "y": 1622,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "\n#TargetPos := #TargetPos - UINT_TO_DINT(#OFFSET) * #Pos_factor;\n#TargetPos := (#TargetPos + DINT#360 * #Pos_factor) MOD (DINT#360 * #Pos_factor);"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Position := TargetPos"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Velocity := VEL_DISP_BKW"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "db7h2834",
+      "number": 34,
+      "name": "FIRE_DISPOSE_BACKWARD",
+      "isInitial": false,
+      "x": 1842,
+      "y": 1802,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "z09y28d2",
+      "number": 35,
+      "name": "END_DISPOSE",
+      "isInitial": false,
+      "x": 1842,
+      "y": 1942,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "t5qrj19b",
+      "number": 10,
+      "name": "RELEASE_BRAKE_HOMING",
+      "isInitial": false,
+      "x": 722,
+      "y": 862,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ReleaseBrake",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "cexrg1gy",
+      "number": 20,
+      "name": "RELEASE_BRAKE_EMPTYING",
+      "isInitial": false,
+      "x": 1302,
+      "y": 862,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ReleaseBrake",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "b51yeldn",
+      "number": 30,
+      "name": "RELEASE_BRAKE_DISPOSE",
+      "isInitial": false,
+      "x": 1842,
+      "y": 862,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ReleaseBrake",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_EMPTY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DISPOSE",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": "onScanStart",
+      "id": "nl23v2ek",
+      "number": 40,
+      "name": "ON_ANY_SCAN_START",
+      "isInitial": false,
+      "x": 1482,
+      "y": 422,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Time_Break_Delay.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = IDLE_WITH_BRAKE"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_Relise_Brake.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = RELEASE_BRAKE_DISPOSE\nOR STEP_NUMBER = RELEASE_BRAKE_EMPTYING\nOR STEP_NUMBER = RELEASE_BRAKE_HOMING"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_AxisPoseOk_Delay.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = FIRE_HOME\nOR STEP_NUMBER = FIRE_EMPTY\nOR STEP_NUMBER = FIRE_DISPOSE_FORWARD\nOR STEP_NUMBER = FIRE_DISPOSE_BACKWARD"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_Empty_To_Home.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = END_EMPTY"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_To_Idle.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = END_HOME\nOR STEP_NUMBER = END_DISPOSE "
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_Dispose_Backward.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = END_DISPOSE_FORWARD"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": " // === RISING EDGE ===\n_re_HOME := NOT _prev_HOME AND HOME;\n_re_EMPTY := NOT _prev_EMPTY AND EMPTY;\n_re_DISPOSE := NOT _prev_DISPOSE AND DISPOSE;\n_prev_HOME := HOME;\n_prev_EMPTY := EMPTY;\n_prev_DISPOSE := DISPOSE;\n"
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "qemoen0m",
+      "fromId": "0itjjbv3",
+      "toStepId": "iqq3fq2w",
+      "toJumpId": null,
+      "condition": "true"
+    },
+    {
+      "id": "70c9uanu",
+      "fromId": "iqq3fq2w",
+      "toStepId": "u0uwn2da",
+      "toJumpId": null,
+      "condition": "AxisPosOk AND AxisSpFixed \nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "io5cs9hn",
+      "fromId": "u0uwn2da",
+      "toStepId": null,
+      "toJumpId": "w3klq2ix",
+      "condition": "Timer_To_Idle.Q"
+    },
+    {
+      "id": "eatszuv3",
+      "fromId": "45ajxci0",
+      "toStepId": null,
+      "toJumpId": "w8i0fv6p",
+      "condition": "_re_HOME \n"
+    },
+    {
+      "id": "4ni1546x",
+      "fromId": "63g5qq5p",
+      "toStepId": "3w385q5i",
+      "toJumpId": null,
+      "condition": "true"
+    },
+    {
+      "id": "fzel8s1c",
+      "fromId": "3w385q5i",
+      "toStepId": "3d4m7fkh",
+      "toJumpId": null,
+      "condition": "AxisPosOk AND AxisSpFixed\nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "xw9spdxa",
+      "fromId": "3d4m7fkh",
+      "toStepId": null,
+      "toJumpId": "3j513n7m",
+      "condition": "Timer_Empty_To_Home.Q"
+    },
+    {
+      "id": "rz792179",
+      "fromId": "iv9dax4m",
+      "toStepId": "idzuiplu",
+      "toJumpId": null,
+      "condition": "true"
+    },
+    {
+      "id": "pff2xp4d",
+      "fromId": "idzuiplu",
+      "toStepId": "l61ocrvm",
+      "toJumpId": null,
+      "condition": "AxisPosOk AND AxisSpFixed\nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "g8q29dys",
+      "fromId": "l61ocrvm",
+      "toStepId": "db7h2834",
+      "toJumpId": null,
+      "condition": "Timer_Dispose_Backward.Q"
+    },
+    {
+      "id": "t1brkbln",
+      "fromId": "db7h2834",
+      "toStepId": "z09y28d2",
+      "toJumpId": null,
+      "condition": "AxisPosOk AND AxisSpFixed\nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "gzqr2esy",
+      "fromId": "z09y28d2",
+      "toStepId": null,
+      "toJumpId": "6kc101pa",
+      "condition": "Timer_To_Idle.Q"
+    },
+    {
+      "fromSinkId": "4kqyqokk",
+      "id": "fcy1j6ih",
+      "fromId": null,
+      "toStepId": "htvlhcwi",
+      "toJumpId": null,
+      "condition": "Error "
+    },
+    {
+      "id": "hicwqwn4",
+      "fromId": "45ajxci0",
+      "toStepId": null,
+      "toJumpId": "xzakil4n",
+      "condition": "Time_Break_Delay.Q"
+    },
+    {
+      "id": "alev3av4",
+      "fromId": "45ajxci0",
+      "toStepId": null,
+      "toJumpId": "br1kojls",
+      "condition": "_re_EMPTY"
+    },
+    {
+      "id": "bremb944",
+      "fromId": "45ajxci0",
+      "toStepId": null,
+      "toJumpId": "3b21wjt7",
+      "condition": "_re_DISPOSE"
+    },
+    {
+      "id": "pl557wo5",
+      "fromId": "t5qrj19b",
+      "toStepId": "0itjjbv3",
+      "toJumpId": null,
+      "condition": "Timer_Relise_Brake.Q"
+    },
+    {
+      "id": "hqd1zyts",
+      "fromId": "b51yeldn",
+      "toStepId": "iv9dax4m",
+      "toJumpId": null,
+      "condition": "Timer_Relise_Brake.Q"
+    },
+    {
+      "id": "klazimzp",
+      "fromId": "htvlhcwi",
+      "toStepId": null,
+      "toJumpId": "9scc3frt",
+      "condition": "_re_HOME"
+    },
+    {
+      "id": "fh0s24my",
+      "fromId": "htvlhcwi",
+      "toStepId": null,
+      "toJumpId": "qg74mhr3",
+      "condition": "_re_EMPTY"
+    },
+    {
+      "id": "xtctuk9n",
+      "fromId": "htvlhcwi",
+      "toStepId": null,
+      "toJumpId": "5qwbxick",
+      "condition": "_re_DISPOSE"
+    },
+    {
+      "id": "8rs14idi",
+      "fromId": "cexrg1gy",
+      "toStepId": "63g5qq5p",
+      "toJumpId": null,
+      "condition": "Timer_Relise_Brake.Q"
+    },
+    {
+      "id": "hw9r9lbh",
+      "fromId": "3d4m7fkh",
+      "toStepId": null,
+      "toJumpId": "jeo8ukyg",
+      "condition": "EMPTYING_COUNT < 6"
+    }
+  ],
+  "jumpTargets": [
+    {
+      "id": "w3klq2ix",
+      "x": 740,
+      "y": 1600,
+      "targetNumber": 0,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "w8i0fv6p",
+      "x": 700,
+      "y": 440,
+      "targetNumber": 11,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "3j513n7m",
+      "x": 1540,
+      "y": 1600,
+      "targetNumber": 11,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "6kc101pa",
+      "x": 1860,
+      "y": 2060,
+      "targetNumber": 0,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "xzakil4n",
+      "x": 1220,
+      "y": 440,
+      "targetNumber": 1,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "br1kojls",
+      "x": 860,
+      "y": 440,
+      "targetNumber": 21,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "3b21wjt7",
+      "x": 1040,
+      "y": 440,
+      "targetNumber": 31,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "9scc3frt",
+      "x": 700,
+      "y": 800,
+      "targetNumber": 10,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "qg74mhr3",
+      "x": 960,
+      "y": 800,
+      "targetNumber": 20,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "5qwbxick",
+      "x": 1260,
+      "y": 800,
+      "targetNumber": 30,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "jeo8ukyg",
+      "x": 1260,
+      "y": 1600,
+      "targetNumber": 21,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    }
+  ],
+  "sinks": [
+    {
+      "id": "4kqyqokk",
+      "x": 960,
+      "y": 500,
+      "sourceMode": "any",
+      "sourceStepIds": []
+    }
+  ],
+  "groups": [
+    {
+      "id": "nqfl67qq",
+      "name": "HOME",
+      "color": "#3b82f6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "0itjjbv3"
+        },
+        {
+          "kind": "step",
+          "id": "iqq3fq2w"
+        },
+        {
+          "kind": "step",
+          "id": "u0uwn2da"
+        },
+        {
+          "kind": "jump",
+          "id": "w3klq2ix"
+        },
+        {
+          "kind": "transition",
+          "id": "qemoen0m"
+        },
+        {
+          "kind": "transition",
+          "id": "70c9uanu"
+        },
+        {
+          "kind": "transition",
+          "id": "io5cs9hn"
+        },
+        {
+          "kind": "step",
+          "id": "t5qrj19b"
+        },
+        {
+          "kind": "transition",
+          "id": "ulpzynij"
+        }
+      ]
+    },
+    {
+      "id": "kcxgnjy9",
+      "name": "EMPTYING",
+      "color": "#f59e0b",
+      "members": [
+        {
+          "kind": "step",
+          "id": "63g5qq5p"
+        },
+        {
+          "kind": "step",
+          "id": "3w385q5i"
+        },
+        {
+          "kind": "step",
+          "id": "3d4m7fkh"
+        },
+        {
+          "kind": "jump",
+          "id": "3j513n7m"
+        },
+        {
+          "kind": "transition",
+          "id": "4ni1546x"
+        },
+        {
+          "kind": "transition",
+          "id": "fzel8s1c"
+        },
+        {
+          "kind": "transition",
+          "id": "xw9spdxa"
+        },
+        {
+          "kind": "step",
+          "id": "cexrg1gy"
+        },
+        {
+          "kind": "jump",
+          "id": "jeo8ukyg"
+        },
+        {
+          "kind": "transition",
+          "id": "hw9r9lbh"
+        }
+      ]
+    },
+    {
+      "id": "jm5rm0r1",
+      "name": "DISPOSE",
+      "color": "#8b5cf6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "iv9dax4m"
+        },
+        {
+          "kind": "step",
+          "id": "idzuiplu"
+        },
+        {
+          "kind": "step",
+          "id": "l61ocrvm"
+        },
+        {
+          "kind": "step",
+          "id": "db7h2834"
+        },
+        {
+          "kind": "step",
+          "id": "z09y28d2"
+        },
+        {
+          "kind": "jump",
+          "id": "6kc101pa"
+        },
+        {
+          "kind": "transition",
+          "id": "rz792179"
+        },
+        {
+          "kind": "transition",
+          "id": "pff2xp4d"
+        },
+        {
+          "kind": "transition",
+          "id": "g8q29dys"
+        },
+        {
+          "kind": "transition",
+          "id": "t1brkbln"
+        },
+        {
+          "kind": "transition",
+          "id": "gzqr2esy"
+        },
+        {
+          "kind": "step",
+          "id": "b51yeldn"
+        },
+        {
+          "kind": "transition",
+          "id": "hqd1zyts"
+        }
+      ]
+    },
+    {
+      "id": "2tjhqdgk",
+      "name": "IDLE_NO_BRAKE",
+      "color": "#10b981",
+      "members": [
+        {
+          "kind": "step",
+          "id": "45ajxci0"
+        },
+        {
+          "kind": "jump",
+          "id": "w8i0fv6p"
+        },
+        {
+          "kind": "jump",
+          "id": "xzakil4n"
+        },
+        {
+          "kind": "jump",
+          "id": "br1kojls"
+        },
+        {
+          "kind": "jump",
+          "id": "3b21wjt7"
+        },
+        {
+          "kind": "transition",
+          "id": "eatszuv3"
+        },
+        {
+          "kind": "transition",
+          "id": "hicwqwn4"
+        },
+        {
+          "kind": "transition",
+          "id": "alev3av4"
+        },
+        {
+          "kind": "transition",
+          "id": "bremb944"
+        }
+      ]
+    },
+    {
+      "id": "60ftvu1m",
+      "name": "IDLE WITH BRAKE",
+      "color": "#ec4899",
+      "members": [
+        {
+          "kind": "step",
+          "id": "htvlhcwi"
+        },
+        {
+          "kind": "jump",
+          "id": "9scc3frt"
+        },
+        {
+          "kind": "jump",
+          "id": "qg74mhr3"
+        },
+        {
+          "kind": "jump",
+          "id": "5qwbxick"
+        },
+        {
+          "kind": "sink",
+          "id": "4kqyqokk"
+        },
+        {
+          "kind": "transition",
+          "id": "fcy1j6ih"
+        },
+        {
+          "kind": "transition",
+          "id": "klazimzp"
+        },
+        {
+          "kind": "transition",
+          "id": "fh0s24my"
+        },
+        {
+          "kind": "transition",
+          "id": "xtctuk9n"
+        }
+      ]
+    }
+  ],
+  "comments": [],
+  "variables": {
+    "DISPOSE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "EMPTY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "OFFSET": {
+      "type": "int",
+      "initial": 7,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "VEL_DISP_FRW": {
+      "type": "int",
+      "initial": 100,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "VEL_DISP_BKW": {
+      "type": "int",
+      "initial": 150,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "VEL_EMPTY": {
+      "type": "int",
+      "initial": 60,
+      "origin": "manual",
+      "table": "INPUT"
+    },
+    "BUSY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "OUTPUT"
+    },
+    "AT_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "OUTPUT"
+    },
+    "AT_DISPOSE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "OUTPUT"
+    },
+    "AT_EMPTY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "OUTPUT"
+    },
+    "ERR": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "OUTPUT"
+    },
+    "ModePos": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "ExecuteMode": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "EnableAxis": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "AxisPosOk": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Time_Break_Delay": {
+      "type": "timer",
+      "origin": "manual",
+      "preset": 5000
+    },
+    "Timer_Relise_Brake": {
+      "type": "timer",
+      "origin": "manual",
+      "preset": 100
+    },
+    "ReleaseBrake": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Position": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Velocity": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Timer_Empty_To_Home": {
+      "type": "timer",
+      "origin": "manual",
+      "preset": 20
+    },
+    "Timer_Dispose_Backward": {
+      "type": "timer",
+      "origin": "manual",
+      "preset": 20
+    },
+    "_prev_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "_prev_EMPTY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "_prev_DISPOSE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "AxisSpFixed": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto",
+      "table": "PtP"
+    },
+    "TargetPos": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_from_emptying": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Vel_factor": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Pos_factor": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Error": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "EMPTYING_COUNT": {
+      "type": "int",
+      "initial": 0,
+      "origin": "auto"
+    },
+    "Timer_AxisPoseOk_Delay": {
+      "type": "timer",
+      "origin": "auto",
+      "preset": 1000
+    },
+    "Timer_To_Idle": {
+      "type": "timer",
+      "origin": "auto",
+      "preset": 1000
+    },
+    "_re_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_re_EMPTY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_re_DISPOSE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "RISING": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "EDGE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "STEP_NUMBER": {
+      "type": "int",
+      "isSystem": true,
+      "comment": "Active step number (system, read-only)"
+    },
+    "IDLE_WITH_BRAKE": {
+      "type": "int",
+      "initial": 1,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #1",
+      "origin": {
+        "kind": "step",
+        "stepId": "htvlhcwi",
+        "stepNumber": 1
+      }
+    },
+    "ARM_HOME": {
+      "type": "int",
+      "initial": 11,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #11",
+      "origin": {
+        "kind": "step",
+        "stepId": "0itjjbv3",
+        "stepNumber": 11
+      }
+    },
+    "FIRE_HOME": {
+      "type": "int",
+      "initial": 12,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #12",
+      "origin": {
+        "kind": "step",
+        "stepId": "iqq3fq2w",
+        "stepNumber": 12
+      }
+    },
+    "END_HOME": {
+      "type": "int",
+      "initial": 13,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #13",
+      "origin": {
+        "kind": "step",
+        "stepId": "u0uwn2da",
+        "stepNumber": 13
+      }
+    },
+    "ARM_EMPTY": {
+      "type": "int",
+      "initial": 21,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #21",
+      "origin": {
+        "kind": "step",
+        "stepId": "63g5qq5p",
+        "stepNumber": 21
+      }
+    },
+    "ARM_DISPOSE_FORWARD": {
+      "type": "int",
+      "initial": 31,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #31",
+      "origin": {
+        "kind": "step",
+        "stepId": "iv9dax4m",
+        "stepNumber": 31
+      }
+    },
+    "IDLE_NO_BRAKE": {
+      "type": "int",
+      "initial": 0,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #0",
+      "origin": {
+        "kind": "step",
+        "stepId": "45ajxci0",
+        "stepNumber": 0
+      }
+    },
+    "FIRE_EMPTY": {
+      "type": "int",
+      "initial": 22,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #22",
+      "origin": {
+        "kind": "step",
+        "stepId": "3w385q5i",
+        "stepNumber": 22
+      }
+    },
+    "END_EMPTY": {
+      "type": "int",
+      "initial": 23,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #23",
+      "origin": {
+        "kind": "step",
+        "stepId": "3d4m7fkh",
+        "stepNumber": 23
+      }
+    },
+    "FIRE_DISPOSE_FORWARD": {
+      "type": "int",
+      "initial": 32,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #32",
+      "origin": {
+        "kind": "step",
+        "stepId": "idzuiplu",
+        "stepNumber": 32
+      }
+    },
+    "END_DISPOSE_FORWARD": {
+      "type": "int",
+      "initial": 33,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #33",
+      "origin": {
+        "kind": "step",
+        "stepId": "l61ocrvm",
+        "stepNumber": 33
+      }
+    },
+    "FIRE_DISPOSE_BACKWARD": {
+      "type": "int",
+      "initial": 34,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #34",
+      "origin": {
+        "kind": "step",
+        "stepId": "db7h2834",
+        "stepNumber": 34
+      }
+    },
+    "END_DISPOSE": {
+      "type": "int",
+      "initial": 35,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #35",
+      "origin": {
+        "kind": "step",
+        "stepId": "z09y28d2",
+        "stepNumber": 35
+      }
+    },
+    "RELEASE_BRAKE_HOMING": {
+      "type": "int",
+      "initial": 10,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #10",
+      "origin": {
+        "kind": "step",
+        "stepId": "t5qrj19b",
+        "stepNumber": 10
+      }
+    },
+    "RELEASE_BRAKE_EMPTYING": {
+      "type": "int",
+      "initial": 20,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #20",
+      "origin": {
+        "kind": "step",
+        "stepId": "cexrg1gy",
+        "stepNumber": 20
+      }
+    },
+    "RELEASE_BRAKE_DISPOSE": {
+      "type": "int",
+      "initial": 30,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #30",
+      "origin": {
+        "kind": "step",
+        "stepId": "b51yeldn",
+        "stepNumber": 30
+      }
+    }
+  },
+  "varTables": [
+    "INPUT",
+    "OUTPUT",
+    "PtP",
+    "steps"
+  ],
+  "triggers": [],
+  "panels": [],
+  "exportPages": [
+    {
+      "id": "njh5ssq0",
+      "format": "a4",
+      "orientation": "portrait",
+      "x": 600,
+      "y": 0,
+      "scale": 3.2,
+      "label": "DISPOSER_WRAPPER"
+    }
+  ],
+  "exportSettings": {
+    "header": "DISPOSER_WRAPPER",
+    "footer": "{page} / {total}",
+    "showHeader": true,
+    "showFooter": false
+  },
+  "conditionSyntax": "scl"
+}
