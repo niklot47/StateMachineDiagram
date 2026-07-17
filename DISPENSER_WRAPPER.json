@@ -286,7 +286,7 @@
           "qualifier": "SET_INT",
           "target": "ExecuteMode",
           "value": 0,
-          "expr": "flse"
+          "expr": "false"
         },
         {
           "qualifier": "SET_INT",
