@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "DISPENSER_WRAPPER_v12",
+  "name": "DISPENSER_WRAPPER",
   "steps": [
     {
       "divergenceType": "OR",
