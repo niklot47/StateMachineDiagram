@@ -13,7 +13,7 @@
       "number": 1,
       "name": "START_UP",
       "isInitial": false,
-      "x": 702,
+      "x": 982,
       "y": -358,
       "actions": [
         {
@@ -47,7 +47,7 @@
       "number": 6,
       "name": "IDLE",
       "isInitial": false,
-      "x": 582,
+      "x": 862,
       "y": 222,
       "actions": [
         {
@@ -148,7 +148,7 @@
       "number": 7,
       "name": "PAUSE_STEP",
       "isInitial": false,
-      "x": 582,
+      "x": 862,
       "y": 542,
       "actions": [
         {
@@ -170,7 +170,7 @@
       "number": 15,
       "name": "UNLOAD_STEP",
       "isInitial": false,
-      "x": 922,
+      "x": 1122,
       "y": 682,
       "actions": [
         {
@@ -202,8 +202,8 @@
       "number": 11,
       "name": "COLLECTION_END",
       "isInitial": false,
-      "x": 22,
-      "y": 1222,
+      "x": -18,
+      "y": 1102,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -224,7 +224,7 @@
       "number": 16,
       "name": "END_CYCLE_STEP",
       "isInitial": false,
-      "x": 1022,
+      "x": 1222,
       "y": 942,
       "actions": [
         {
@@ -252,8 +252,8 @@
       "number": 12,
       "name": "DISPOSE",
       "isInitial": false,
-      "x": 22,
-      "y": 1382,
+      "x": -18,
+      "y": 1342,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -292,8 +292,8 @@
       "number": 13,
       "name": "PHOTO",
       "isInitial": false,
-      "x": 22,
-      "y": 1582,
+      "x": -18,
+      "y": 1542,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -341,8 +341,8 @@
       "number": 14,
       "name": "DISPOSE_END",
       "isInitial": false,
-      "x": 22,
-      "y": 1762,
+      "x": -18,
+      "y": 1722,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -376,7 +376,7 @@
       "number": 3,
       "name": "DISPENSER_AND_PLATFORM_HOMING",
       "isInitial": false,
-      "x": 702,
+      "x": 982,
       "y": -218,
       "actions": [
         {
@@ -410,7 +410,7 @@
       "number": 5,
       "name": "EMPTYING_START",
       "isInitial": false,
-      "x": 582,
+      "x": 862,
       "y": 102,
       "actions": [
         {
@@ -438,7 +438,7 @@
       "number": 8,
       "name": "COLLECTION_START",
       "isInitial": false,
-      "x": 462,
+      "x": 122,
       "y": 682,
       "actions": [
         {
@@ -466,7 +466,7 @@
       "number": 9,
       "name": "COLLECTION_DELAY",
       "isInitial": false,
-      "x": 462,
+      "x": 122,
       "y": 802,
       "actions": [
         {
@@ -494,8 +494,8 @@
       "number": 17,
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
-      "x": 802,
-      "y": 1222,
+      "x": 1002,
+      "y": 1242,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -586,21 +586,6 @@
       ]
     },
     {
-      "divergenceType": "AND",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "true",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
-      "id": "3nyyiw2i",
-      "number": 0,
-      "name": "INIT",
-      "isInitial": true,
-      "x": 1862,
-      "y": -58,
-      "actions": []
-    },
-    {
       "divergenceType": "OR",
       "convergenceType": "OR",
       "andDivergenceCondition": "",
@@ -610,54 +595,10 @@
       "id": "r4uxl457",
       "number": 35,
       "name": "STATE_MACHINE_INIT",
-      "isInitial": false,
-      "x": 702,
+      "isInitial": true,
+      "x": 982,
       "y": -498,
       "actions": []
-    },
-    {
-      "divergenceType": "OR",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
-      "id": "u5iebbg3",
-      "number": 20,
-      "name": "FLASHING_ON",
-      "isInitial": false,
-      "x": 2262,
-      "y": -78,
-      "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "Flash",
-          "value": 0,
-          "expr": "true"
-        }
-      ]
-    },
-    {
-      "divergenceType": "OR",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
-      "id": "xijugj9f",
-      "number": 21,
-      "name": "FLASHING_OFF",
-      "isInitial": false,
-      "x": 2262,
-      "y": 22,
-      "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "Flash",
-          "value": 0,
-          "expr": "false"
-        }
-      ]
     },
     {
       "divergenceType": "OR",
@@ -670,8 +611,8 @@
       "number": 18,
       "name": "CRITICAL_ERROR",
       "isInitial": false,
-      "x": 1042,
-      "y": 1642,
+      "x": 1242,
+      "y": 1662,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -692,7 +633,7 @@
       "number": 4,
       "name": "DISPOSER_HOMING",
       "isInitial": false,
-      "x": 702,
+      "x": 982,
       "y": -78,
       "actions": [
         {
@@ -726,12 +667,12 @@
       "number": 100,
       "name": "OnScanStart",
       "isInitial": false,
-      "x": 1642,
-      "y": 202,
+      "x": 2,
+      "y": -298,
       "actions": [
         {
           "qualifier": "EXPR",
-          "target": "// === TIMERS ===\n\nTimer_StartUP.IN := STEP_NUMBER = START_UP;\n\nCollection_Timer.IN := STEP_NUMBER = COLLECTION_START\n                    OR STEP_NUMBER = COLLECTION_DELAY\n                    OR STEP_NUMBER = RESET_DISPENSER\n\nCollection_Step_Delay_Timer.IN := STEP_NUMBER = COLLECTION_DELAY\n\n// === EVENTS ===\n\nLid_Is_Open := NOT Sicurezze_Attivate AND NOT Tramoggia_Assente AND NOT Emergenza;\n\nLast_Pill_Recived := (PILL_MAX_NUMBER <> 0 AND PILL_MAX_NUMBER <= PILL_COUNT) \n                  OR (PILL_MAX_NUMBER = 0 AND Collection_Timer);\n\nTimeout_Ciclo := PILL_MAX_NUMBER <> 0 AND Collection_Timer;\n\nTimer_Flashing_On.IN := STEP_NUMBER = FLASHING_ON\n\nTimer_Flashing_Off.IN := STEP_NUMBER = FLASHING_OFF\n\n// === SEMAFORI ===\nSemaforo_Blu := NOT Sicurezze_Attivate \n            OR (Flash AND (NOT PC_Acceso OR Timeout_Ciclo));\n\nSemaforo_Verde := (NOT PAUSE AND RUNNING AND NOT UNLOAD) \n               OR (Flash AND UNLOAD)\n\nSemaforo_Rosso := Emergenza \n               OR Critical_Erorr \n               OR Lid_Is_Open \n               OR Tramoggia_Assente \n               OR ( Flash AND ((PC_Acceso AND NOT MODBUS_CONNECTION) ON_AXIS_ERROR ON_AXIS_ERROR \n                            OR (NOT PC_Acceso AND MODBUS_CONNECTION)))"
+          "target": "// === TIMERS ===\n\nTimer_StartUP.IN := STEP_NUMBER = START_UP;\n\nCollection_Timer.IN := STEP_NUMBER = COLLECTION_START\n                    OR STEP_NUMBER = COLLECTION_DELAY\n                    OR STEP_NUMBER = RESET_DISPENSER\n\nCollection_Step_Delay_Timer.IN := STEP_NUMBER = COLLECTION_DELAY\n\n// === EVENTS ===\n\nLid_Is_Open := NOT Sicurezze_Attivate AND NOT Tramoggia_Assente AND NOT Emergenza;\n\nLast_Pill_Recived := (PILL_MAX_NUMBER <> 0 AND PILL_MAX_NUMBER <= PILL_COUNT) \n                  OR (PILL_MAX_NUMBER = 0 AND Collection_Timer);\n\nTimeout_Ciclo := PILL_MAX_NUMBER <> 0 AND Collection_Timer;\n\nTimer_Flashing_On.IN := STEP_NUMBER = FLASHING_ON\n\nTimer_Flashing_Off.IN := STEP_NUMBER = FLASHING_OFF\n\n// === SEMAFORI ===\n\nTimer_Flash_Off.IN := NOT Timer_Flash_On.Q;\nTimer_Flash_On.IN := Timer_Flash_Off.Q;\n\n#_Flash := Timer_Flash_Off.Q AND NOT Timer_Flash_On.Q;\n\n\nSemaforo_Blu := NOT Sicurezze_Attivate \n            OR (Flash AND (NOT PC_Acceso OR Timeout_Ciclo));\n\nSemaforo_Verde := (NOT PAUSE AND RUNNING AND NOT UNLOAD) \n               OR (Flash AND UNLOAD)\n\nSemaforo_Rosso := Emergenza \n               OR Critical_Erorr \n               OR Lid_Is_Open \n               OR Tramoggia_Assente \n               OR ( Flash AND ((PC_Acceso AND NOT MODBUS_CONNECTION) ON_AXIS_ERROR ON_AXIS_ERROR \n                            OR (NOT PC_Acceso AND MODBUS_CONNECTION)))"
         }
       ]
     }
@@ -844,39 +785,11 @@
       "condition": "AXIS_ERROR_RESET \nAND ISSUE_COUNTER < 5 \nAND Sicurezze_Attivate"
     },
     {
-      "id": "9p891j8h",
-      "fromId": "3nyyiw2i",
-      "toStepId": null,
-      "toJumpId": "ibf92ykl",
-      "condition": ""
-    },
-    {
-      "id": "5zr1b0nn",
-      "fromId": "3nyyiw2i",
-      "toStepId": null,
-      "toJumpId": "u3i4ni8c",
-      "condition": ""
-    },
-    {
       "id": "iqhmxdt6",
       "fromId": "r4uxl457",
       "toStepId": "6p94gmka",
       "toJumpId": null,
       "condition": "Sicurezze_Attivate"
-    },
-    {
-      "id": "t21zx3gm",
-      "fromId": "u5iebbg3",
-      "toStepId": "xijugj9f",
-      "toJumpId": null,
-      "condition": "Timer_Flashing_On"
-    },
-    {
-      "id": "yzrwlf2f",
-      "fromId": "xijugj9f",
-      "toStepId": null,
-      "toJumpId": "xklp4kpj",
-      "condition": "Timer_Flashing_Off"
     },
     {
       "id": "lt038hgw",
@@ -911,7 +824,7 @@
       "fromId": "itoclqlh",
       "toStepId": null,
       "toJumpId": "mtyazx2g",
-      "condition": "Disposer_At_Home AND \nNOT Disposer_Busy AND \nNOT RUNNING"
+      "condition": "Disposer_At_Home AND \nNOT Disposer_Busy AND \nRUNNING"
     },
     {
       "id": "9g42h5ed",
@@ -938,23 +851,23 @@
   "jumpTargets": [
     {
       "id": "7c4a5gd0",
-      "x": 300,
-      "y": 1160,
+      "x": 480,
+      "y": 1180,
       "targetNumber": 15,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "rgetbef7",
-      "x": 80,
-      "y": 1020,
+      "x": 220,
+      "y": 1200,
       "targetNumber": 7,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "9yh5d6a8",
-      "x": 820,
+      "x": 1020,
       "y": 940,
       "targetNumber": 11,
       "convergenceType": "OR",
@@ -962,7 +875,7 @@
     },
     {
       "id": "p0vopdua",
-      "x": 1040,
+      "x": 1240,
       "y": 1060,
       "targetNumber": 6,
       "convergenceType": "OR",
@@ -970,15 +883,15 @@
     },
     {
       "id": "7twys24j",
-      "x": 40,
-      "y": 1900,
+      "x": 0,
+      "y": 1860,
       "targetNumber": 7,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "58vpgymm",
-      "x": 440,
+      "x": 580,
       "y": 980,
       "targetNumber": 8,
       "convergenceType": "OR",
@@ -986,39 +899,15 @@
     },
     {
       "id": "ondmfznd",
-      "x": 820,
-      "y": 1660,
+      "x": 1020,
+      "y": 1680,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
-      "id": "ibf92ykl",
-      "x": 1720,
-      "y": 120,
-      "targetNumber": 35,
-      "convergenceType": "OR",
-      "andConvergenceCondition": ""
-    },
-    {
-      "id": "u3i4ni8c",
-      "x": 2020,
-      "y": 120,
-      "targetNumber": 20,
-      "convergenceType": "OR",
-      "andConvergenceCondition": ""
-    },
-    {
-      "id": "xklp4kpj",
-      "x": 2280,
-      "y": 140,
-      "targetNumber": 20,
-      "convergenceType": "OR",
-      "andConvergenceCondition": ""
-    },
-    {
       "id": "mtyazx2g",
-      "x": 900,
+      "x": 1180,
       "y": 120,
       "targetNumber": 7,
       "convergenceType": "OR",
@@ -1239,19 +1128,6 @@
         "stepNumber": 17
       }
     },
-    "INIT": {
-      "type": "int",
-      "initial": 0,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #0",
-      "origin": {
-        "kind": "step",
-        "stepId": "3nyyiw2i",
-        "stepNumber": 0
-      }
-    },
     "STATE_MACHINE_INIT": {
       "type": "int",
       "initial": 35,
@@ -1263,32 +1139,6 @@
         "kind": "step",
         "stepId": "r4uxl457",
         "stepNumber": 35
-      }
-    },
-    "FLASHING_ON": {
-      "type": "int",
-      "initial": 20,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #20",
-      "origin": {
-        "kind": "step",
-        "stepId": "u5iebbg3",
-        "stepNumber": 20
-      }
-    },
-    "FLASHING_OFF": {
-      "type": "int",
-      "initial": 21,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #21",
-      "origin": {
-        "kind": "step",
-        "stepId": "xijugj9f",
-        "stepNumber": 21
       }
     },
     "CRITICAL_ERROR": {
@@ -1632,6 +1482,31 @@
       "type": "bool",
       "initial": false,
       "origin": "auto"
+    },
+    "Timer_Flash_Off": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Timer_Flash_On": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_Flash": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "FLASHING_ON": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "FLASHING_OFF": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
     }
   },
   "panels": [],
@@ -1639,8 +1514,8 @@
   "sinks": [
     {
       "id": "kvpvktde",
-      "x": 820,
-      "y": 1120,
+      "x": 1020,
+      "y": 1140,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
@@ -1855,67 +1730,12 @@
       "color": "#14b8a6",
       "members": [
         {
-          "kind": "step",
-          "id": "3nyyiw2i"
-        },
-        {
-          "kind": "jump",
-          "id": "ibf92ykl"
-        },
-        {
-          "kind": "jump",
-          "id": "u3i4ni8c"
-        },
-        {
           "kind": "transition",
           "id": "9p891j8h"
         },
         {
           "kind": "transition",
           "id": "5zr1b0nn"
-        }
-      ]
-    },
-    {
-      "id": "m17oi0o9",
-      "name": "SEMAFORO",
-      "color": "#ec4899",
-      "members": [
-        {
-          "kind": "step",
-          "id": "u5iebbg3"
-        },
-        {
-          "kind": "step",
-          "id": "xijugj9f"
-        },
-        {
-          "kind": "jump",
-          "id": "xklp4kpj"
-        },
-        {
-          "kind": "transition",
-          "id": "t21zx3gm"
-        },
-        {
-          "kind": "transition",
-          "id": "yzrwlf2f"
-        },
-        {
-          "kind": "transition",
-          "id": "h4hvjzg5"
-        },
-        {
-          "kind": "transition",
-          "id": "cm6knfyl"
-        },
-        {
-          "kind": "transition",
-          "id": "kb50tbnz"
-        },
-        {
-          "kind": "transition",
-          "id": "k0v54r5f"
         }
       ]
     }
@@ -1936,19 +1756,10 @@
       "id": "bl72uiye",
       "format": "a4",
       "orientation": "portrait",
-      "x": -300,
+      "x": -140,
       "y": -560,
-      "scale": 2.9,
+      "scale": 2.8,
       "label": "INIT_AND_SEMAFOR"
-    },
-    {
-      "id": "xctf2vh6",
-      "format": "a4",
-      "orientation": "portrait",
-      "x": 1560,
-      "y": -500,
-      "scale": 1.95,
-      "label": ""
     }
   ],
   "exportSettings": {
