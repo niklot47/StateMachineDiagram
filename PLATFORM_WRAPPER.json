@@ -683,12 +683,6 @@
       "initial": false,
       "origin": "manual"
     },
-    "Timer_EnableAxis": {
-      "type": "timer",
-      "preset": 1000,
-      "origin": "manual",
-      "table": "Timers"
-    },
     "STEP_NUMBER": {
       "type": "int",
       "isSystem": true,
@@ -805,6 +799,12 @@
       "origin": "auto"
     },
     "EnableAxis": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto",
+      "table": "PtP"
+    },
+    "AxisEnable": {
       "type": "bool",
       "initial": false,
       "origin": "auto",
