@@ -253,7 +253,7 @@
       "name": "DISPOSE",
       "isInitial": false,
       "x": -18,
-      "y": 1342,
+      "y": 1262,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -293,7 +293,7 @@
       "name": "PHOTO",
       "isInitial": false,
       "x": -18,
-      "y": 1662,
+      "y": 1502,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -342,7 +342,7 @@
       "name": "DISPOSE_END",
       "isInitial": false,
       "x": -18,
-      "y": 1862,
+      "y": 1682,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -725,14 +725,14 @@
       "fromId": "3wamq1a9",
       "toStepId": "sptcabxy",
       "toJumpId": null,
-      "condition": "Disposer_Dispose_Done AND \nNOT Disposer_Busy AND \n(ANALISE_READY OR PILL_COUNT < 3 OR NOT RUNNING\n//OR (\"DB003_Comms\".PLC_UNLOADING\n                        AND \"DB005_State_Machine\".Unload_Buffer > 3)\n)"
+      "condition": "Disposer_Dispose_Done AND \nNOT Disposer_Busy AND \n(ANALISE_READY OR PILL_COUNT < 3 OR NOT RUNNING\nOR (UNLOAD AND Unload_Buffer > 3))"
     },
     {
       "id": "vhm680ky",
       "fromId": "sptcabxy",
       "toStepId": "jl0piqn4",
       "toJumpId": null,
-      "condition": "PHOTO_CAPTURED OR NOT RUNNING\n// OR \"DB003_Comms\".PLC_UNLOADING AND \"DB005_State_Machine\".Unload_Buffer > 2"
+      "condition": "PHOTO_CAPTURED OR NOT RUNNING\nOR (UNLOAD AND Unload_Buffer > 2)"
     },
     {
       "id": "cdk9ua33",
@@ -884,7 +884,7 @@
     {
       "id": "7twys24j",
       "x": 0,
-      "y": 2000,
+      "y": 1820,
       "targetNumber": 7,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1508,11 +1508,6 @@
       "initial": false,
       "origin": "auto"
     },
-    "DB005_State_Machine": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto"
-    },
     "Unload_Buffer": {
       "type": "bool",
       "initial": false,
@@ -1768,7 +1763,7 @@
       "orientation": "portrait",
       "x": -140,
       "y": -560,
-      "scale": 2.95,
+      "scale": 2.8,
       "label": "INIT_AND_SEMAFOR"
     }
   ],
