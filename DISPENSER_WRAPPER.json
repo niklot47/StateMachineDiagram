@@ -52,9 +52,10 @@
       "actions": [
         {
           "qualifier": "SET_INT",
-          "target": "EnableAxis",
+          "target": "AT_HOME",
+          "disabled": false,
           "value": 0,
-          "expr": "true"
+          "expr": "false"
         },
         {
           "qualifier": "SET_INT",
@@ -65,10 +66,9 @@
         },
         {
           "qualifier": "SET_INT",
-          "target": "AT_HOME",
-          "disabled": false,
+          "target": "EnableAxis",
           "value": 0,
-          "expr": "false"
+          "expr": "true"
         }
       ]
     },
@@ -80,18 +80,12 @@
       "isFinal": false,
       "hookKind": null,
       "id": "owvrxvvy",
-      "number": 30,
+      "number": 31,
       "name": "ARM_STEP",
       "isInitial": false,
-      "x": 502,
+      "x": 542,
       "y": 602,
       "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "EnableAxis",
-          "value": 0,
-          "expr": "true"
-        },
         {
           "qualifier": "SET_INT",
           "target": "BUSY",
@@ -112,6 +106,12 @@
         {
           "qualifier": "NOTE",
           "target": "\n#tNextCell := #N + 1;\nIF #tNextCell >= #CELL THEN\n   #tNextCell := 0;\nEND_IF;\n#N_target := #tNextCell;\n#TargetPos := INT_TO_DINT(#N_target) * #StepSize;\n\n#PtP.Position := #TargetPos;\n#PtP.Velocity := #VEL_STEP * #POS_FACTOR;"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
         }
       ]
     },
@@ -126,8 +126,8 @@
       "number": 100,
       "name": "ON_ANY_SCAN_STRT",
       "isInitial": false,
-      "x": 482,
-      "y": 122,
+      "x": 502,
+      "y": 142,
       "actions": [
         {
           "qualifier": "NOTE",
@@ -253,7 +253,7 @@
       "number": 32,
       "name": "FIRE_STEP",
       "isInitial": false,
-      "x": 502,
+      "x": 542,
       "y": 942,
       "actions": [
         {
@@ -317,14 +317,14 @@
       "fromId": "0aqobjxe",
       "toStepId": "0xzhhy5y",
       "toJumpId": null,
-      "condition": "NOT AxisRef"
+      "condition": "NOT AxisRef AND AxisEnable"
     },
     {
       "id": "z00hyjen",
       "fromId": "0aqobjxe",
       "toStepId": "6wt1w8js",
       "toJumpId": null,
-      "condition": "AxisRef"
+      "condition": "AxisRef AND AxisEnable"
     },
     {
       "id": "689qko5k",
@@ -387,7 +387,7 @@
   "jumpTargets": [
     {
       "id": "r8so43jq",
-      "x": 520,
+      "x": 560,
       "y": 1100,
       "targetNumber": 4,
       "convergenceType": "OR",
@@ -694,15 +694,15 @@
     },
     "ARM_STEP": {
       "type": "int",
-      "initial": 30,
+      "initial": 31,
       "isAuto": true,
       "readOnly": true,
       "table": "steps",
-      "comment": "Auto: step #30",
+      "comment": "Auto: step #31",
       "origin": {
         "kind": "step",
         "stepId": "owvrxvvy",
-        "stepNumber": 30
+        "stepNumber": 31
       }
     },
     "ARM_HOME": {
