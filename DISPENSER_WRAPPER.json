@@ -104,7 +104,7 @@
           "value": 2
         },
         {
-          "qualifier": "NOTE",
+          "qualifier": "EXPR",
           "target": "\n#tNextCell := #N + 1;\nIF #tNextCell >= #CELL THEN\n   #tNextCell := 0;\nEND_IF;\n#N_target := #tNextCell;\n#TargetPos := INT_TO_DINT(#N_target) * #StepSize;\n\n#PtP.Position := #TargetPos;\n#PtP.Velocity := #VEL_STEP * #POS_FACTOR;"
         },
         {
@@ -188,8 +188,8 @@
           "value": 2
         },
         {
-          "qualifier": "NOTE",
-          "target": "=== POSE ===\n\n#N_target := DINT_TO_INT(ROUND(DINT_TO_REAL(#PtP.ActPosition) / DINT_TO_REAL(#StepSize)));\n#N_target := #N_target MOD #CELL;\n\nIF #N_target < 0 THEN\n                    #N_target := #N_target + #CELL;\nEND_IF;\n#TargetPos := INT_TO_DINT(#N_target) * #StepSize;\n\n#PtP.Position := #TargetPos;\n#PtP.Velocity := #VEL_HOMING* #POS_FACTOR;",
+          "qualifier": "EXPR",
+          "target": "// === POSE ===\n\n#N_target := DINT_TO_INT(ROUND(DINT_TO_REAL(#PtP.ActPosition) / DINT_TO_REAL(#StepSize)));\n#N_target := #N_target MOD #CELL;\n\nIF #N_target < 0 THEN\n                    #N_target := #N_target + #CELL;\nEND_IF;\n#TargetPos := INT_TO_DINT(#N_target) * #StepSize;\n\n#PtP.Position := #TargetPos;\n#PtP.Velocity := #VEL_HOMING* #POS_FACTOR;",
           "value": 0
         }
       ]
@@ -237,7 +237,7 @@
           "expr": "true"
         },
         {
-          "qualifier": "NOTE",
+          "qualifier": "EXPR",
           "target": "#N := #N_target;"
         }
       ]
@@ -775,6 +775,25 @@
       "initial": 0,
       "origin": "manual"
     },
+    "END_MOVE": {
+      "type": "int",
+      "initial": 4,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #4",
+      "origin": {
+        "kind": "step",
+        "stepId": "7gsbjbsv",
+        "stepNumber": 4
+      }
+    },
+    "ActPosition": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
     "Timer_AxisPoseOk_Delay": {
       "type": "timer",
       "preset": 1000,
@@ -792,18 +811,80 @@
       "initial": false,
       "origin": "auto"
     },
-    "END_MOVE": {
-      "type": "int",
-      "initial": 4,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #4",
-      "origin": {
-        "kind": "step",
-        "stepId": "7gsbjbsv",
-        "stepNumber": 4
-      }
+    "AxisEnable": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "tNextCell": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "N": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "IF": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "THEN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "END_IF": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "N_target": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "TargetPos": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "INT_TO_DINT": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "PtP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "POS_FACTOR": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "DINT_TO_INT": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "ROUND": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "DINT_TO_REAL": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "MOD": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
     }
   },
   "varTables": [
