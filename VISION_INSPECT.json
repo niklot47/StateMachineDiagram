@@ -238,6 +238,12 @@
           "target": "RUNNING",
           "value": 0,
           "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "END_CYCLE",
+          "value": 0,
+          "expr": "true"
         }
       ]
     },
@@ -358,7 +364,7 @@
         },
         {
           "qualifier": "SET_INT",
-          "target": "ANALISE_READY_RESET",
+          "target": "RESET_ANALIZE_IS_READY",
           "disabled": false,
           "value": 0,
           "expr": "true"
@@ -495,7 +501,7 @@
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
       "x": 1002,
-      "y": 1242,
+      "y": 1262,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -538,12 +544,6 @@
         {
           "qualifier": "SET_INT",
           "target": "Disposer_Dispose",
-          "value": 0,
-          "expr": "false"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Dispenser_Enable",
           "value": 0,
           "expr": "false"
         },
@@ -612,7 +612,7 @@
       "name": "CRITICAL_ERROR",
       "isInitial": false,
       "x": 1242,
-      "y": 1662,
+      "y": 1682,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -876,7 +876,7 @@
     {
       "id": "p0vopdua",
       "x": 1240,
-      "y": 1060,
+      "y": 1080,
       "targetNumber": 6,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -900,7 +900,7 @@
     {
       "id": "ondmfznd",
       "x": 1020,
-      "y": 1680,
+      "y": 1700,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -982,12 +982,6 @@
       "origin": "manual"
     },
     "END_CYCLE": {
-      "type": "bool",
-      "initial": false,
-      "origin": "manual",
-      "table": "DB003_Comms"
-    },
-    "ANALISE_READY_RESET": {
       "type": "bool",
       "initial": false,
       "origin": "manual",
@@ -1512,6 +1506,11 @@
       "type": "bool",
       "initial": false,
       "origin": "auto"
+    },
+    "RESET_ANALIZE_IS_READY": {
+      "type": "int",
+      "initial": 0,
+      "origin": "auto"
     }
   },
   "panels": [],
@@ -1520,7 +1519,7 @@
     {
       "id": "kvpvktde",
       "x": 1020,
-      "y": 1140,
+      "y": 1160,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
