@@ -1,0 +1,842 @@
+{
+  "version": "1.0",
+  "name": "PLATFORM_WRAPPER_v20",
+  "steps": [
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "dgi7ixna",
+      "number": 0,
+      "name": "IDLE",
+      "isInitial": true,
+      "x": 962,
+      "y": -198,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "false"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "aqeplic2",
+      "number": 11,
+      "name": "ARM_HOME",
+      "isInitial": false,
+      "x": 642,
+      "y": -58,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DOWN",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_UP",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "=== PtP ==="
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 4
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Patern := ARM_HOME",
+          "value": 11
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "wfr4zspx",
+      "number": 12,
+      "name": "ARM_UP",
+      "isInitial": false,
+      "x": 962,
+      "y": -58,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DOWN",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_UP",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "=== PtP ==="
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 2
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Patern := ARM_UP",
+          "value": 12
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Position := POS_UP_MM * pos_factor;\nVelocity := VEL_UP * vel_factor;"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "cnaw5zlj",
+      "number": 13,
+      "name": "ARM_DOWN",
+      "isInitial": false,
+      "x": 1302,
+      "y": -58,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "BUSY",
+          "value": 0,
+          "expr": "true"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_DOWN",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_HOME",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "AT_UP",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "=== PtP ==="
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ModePos",
+          "value": 2
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Patern := ARM_DOWN",
+          "value": 13
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Position := POS_DOWN_MM * pos_factor;\nVelocity := VEL_DOWN * vel_factor;"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "EnableAxis",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "9mugsjqt",
+      "number": 2,
+      "name": "FIRE_MOVE",
+      "isInitial": false,
+      "x": 722,
+      "y": 282,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "vjon0paz",
+      "number": 3,
+      "name": "END_MOVE",
+      "isInitial": false,
+      "x": 722,
+      "y": 382,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "ExecuteMode",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "AT_HOME := Patern = 11;\nAT_UP := Patern = 12;\nAT_DOWN := Patern = 13;"
+        }
+      ]
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": "onScanStart",
+      "id": "7ge688la",
+      "number": 40,
+      "name": "ON_SCAN_START",
+      "isInitial": false,
+      "x": 1242,
+      "y": 302,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_AxisPoseOk_Delay.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = FIRE_MOVE"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Timer_To_Idle.IN",
+          "value": 0,
+          "expr": "STEP_NUMBER = END_MOVE"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": " === RISING_EDGE ==="
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_HOME",
+          "value": 0,
+          "expr": "NOT _prev_HOME AND HOME"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_GO_UP",
+          "value": 0,
+          "expr": "NOT _prev_GO_UP AND GO_UP"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_GO_DOWN",
+          "value": 0,
+          "expr": "NOT _prev_GO_DOWN AND GO_DOWN"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_HOME",
+          "value": 0,
+          "expr": "HOME"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_GO_UP",
+          "value": 0,
+          "expr": "GO_UP"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "_re_GO_DOWN",
+          "value": 0,
+          "expr": "GO_DOWN"
+        },
+        {
+          "qualifier": "NOTE",
+          "target": " === ERROR ==="
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "ERR",
+          "value": 0,
+          "expr": "AxisError"
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "2a2hvkva",
+      "fromId": "dgi7ixna",
+      "toStepId": "aqeplic2",
+      "toJumpId": null,
+      "condition": "_re_HOME"
+    },
+    {
+      "id": "h36oj3q3",
+      "fromId": "dgi7ixna",
+      "toStepId": "wfr4zspx",
+      "toJumpId": null,
+      "condition": "_re_GO_UP"
+    },
+    {
+      "id": "fjmsc14c",
+      "fromId": "dgi7ixna",
+      "toStepId": "cnaw5zlj",
+      "toJumpId": null,
+      "condition": "_re_GO_DOWN"
+    },
+    {
+      "id": "90nqffsj",
+      "fromId": "9mugsjqt",
+      "toStepId": "vjon0paz",
+      "toJumpId": null,
+      "condition": "AxisPosOk AND AxisSpFixed \nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "4dmalxll",
+      "fromId": "vjon0paz",
+      "toStepId": null,
+      "toJumpId": "ah0fjlsk",
+      "condition": "Timer_To_Idle.Q"
+    },
+    {
+      "id": "wfcyv7d4",
+      "fromId": "aqeplic2",
+      "toStepId": null,
+      "toJumpId": "k3jqk3mz",
+      "condition": "AxisEnable"
+    },
+    {
+      "id": "2x6jr1le",
+      "fromId": "cnaw5zlj",
+      "toStepId": null,
+      "toJumpId": "bxaa6ozh",
+      "condition": "AxisEnable"
+    },
+    {
+      "id": "70houskg",
+      "fromId": "wfr4zspx",
+      "toStepId": null,
+      "toJumpId": "qy6kn4rk",
+      "condition": "AxisEnable"
+    }
+  ],
+  "jumpTargets": [
+    {
+      "id": "ah0fjlsk",
+      "x": 740,
+      "y": 560,
+      "targetNumber": 0,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "k3jqk3mz",
+      "x": 660,
+      "y": 180,
+      "targetNumber": 2,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "qy6kn4rk",
+      "x": 980,
+      "y": 220,
+      "targetNumber": 2,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "bxaa6ozh",
+      "x": 1320,
+      "y": 200,
+      "targetNumber": 2,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    }
+  ],
+  "sinks": [],
+  "groups": [
+    {
+      "id": "yxg87l8o",
+      "name": "PREPARSTION",
+      "color": "#3b82f6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "aqeplic2"
+        },
+        {
+          "kind": "step",
+          "id": "wfr4zspx"
+        },
+        {
+          "kind": "step",
+          "id": "cnaw5zlj"
+        },
+        {
+          "kind": "jump",
+          "id": "k3jqk3mz"
+        },
+        {
+          "kind": "jump",
+          "id": "qy6kn4rk"
+        },
+        {
+          "kind": "jump",
+          "id": "bxaa6ozh"
+        },
+        {
+          "kind": "transition",
+          "id": "2a2hvkva"
+        },
+        {
+          "kind": "transition",
+          "id": "h36oj3q3"
+        },
+        {
+          "kind": "transition",
+          "id": "fjmsc14c"
+        },
+        {
+          "kind": "transition",
+          "id": "wfcyv7d4"
+        },
+        {
+          "kind": "transition",
+          "id": "2x6jr1le"
+        },
+        {
+          "kind": "transition",
+          "id": "70houskg"
+        }
+      ]
+    },
+    {
+      "id": "ssmc793c",
+      "name": "FIRE",
+      "color": "#ef4444",
+      "members": [
+        {
+          "kind": "step",
+          "id": "9mugsjqt"
+        },
+        {
+          "kind": "step",
+          "id": "vjon0paz"
+        },
+        {
+          "kind": "jump",
+          "id": "ah0fjlsk"
+        },
+        {
+          "kind": "transition",
+          "id": "90nqffsj"
+        },
+        {
+          "kind": "transition",
+          "id": "4dmalxll"
+        }
+      ]
+    }
+  ],
+  "comments": [],
+  "variables": {
+    "GO_UP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Input"
+    },
+    "GO_DOWN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Input"
+    },
+    "HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Input"
+    },
+    "VEL_DOWN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Input"
+    },
+    "BUSY": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Output"
+    },
+    "VEL_UP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Input"
+    },
+    "AT_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Output"
+    },
+    "AT_UP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Output"
+    },
+    "AT_DOWN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Output"
+    },
+    "ERR": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "Output"
+    },
+    "ModePos": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "ExecuteMode": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "pos_factor": {
+      "type": "int",
+      "initial": 1000000,
+      "origin": "manual",
+      "table": "Constants"
+    },
+    "vel_factor": {
+      "type": "int",
+      "initial": 1000,
+      "origin": "manual",
+      "table": "Constants"
+    },
+    "POS_DOWN_MM": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "Constants"
+    },
+    "POS_UP_MM": {
+      "type": "int",
+      "initial": 11,
+      "origin": "manual",
+      "table": "Constants"
+    },
+    "Position": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Velocity": {
+      "type": "int",
+      "initial": 0,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "AxisError": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual",
+      "table": "PtP"
+    },
+    "Timer_AxisPoseOk_Delay": {
+      "type": "timer",
+      "preset": 1000,
+      "origin": "manual",
+      "table": "Timers"
+    },
+    "Timer_To_Idle": {
+      "type": "timer",
+      "preset": 1000,
+      "origin": "manual",
+      "table": "Timers"
+    },
+    "_prev_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "_prev_GO_UP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "_prev_GO_DOWN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "manual"
+    },
+    "Timer_EnableAxis": {
+      "type": "timer",
+      "preset": 1000,
+      "origin": "manual",
+      "table": "Timers"
+    },
+    "STEP_NUMBER": {
+      "type": "int",
+      "isSystem": true,
+      "comment": "Active step number (system, read-only)"
+    },
+    "IDLE": {
+      "type": "int",
+      "initial": 0,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #0",
+      "origin": {
+        "kind": "step",
+        "stepId": "dgi7ixna",
+        "stepNumber": 0
+      }
+    },
+    "ARM_HOME": {
+      "type": "int",
+      "initial": 11,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #11",
+      "origin": {
+        "kind": "step",
+        "stepId": "aqeplic2",
+        "stepNumber": 11
+      }
+    },
+    "ARM_UP": {
+      "type": "int",
+      "initial": 12,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #12",
+      "origin": {
+        "kind": "step",
+        "stepId": "wfr4zspx",
+        "stepNumber": 12
+      }
+    },
+    "ARM_DOWN": {
+      "type": "int",
+      "initial": 13,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #13",
+      "origin": {
+        "kind": "step",
+        "stepId": "cnaw5zlj",
+        "stepNumber": 13
+      }
+    },
+    "FIRE_MOVE": {
+      "type": "int",
+      "initial": 2,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #2",
+      "origin": {
+        "kind": "step",
+        "stepId": "9mugsjqt",
+        "stepNumber": 2
+      }
+    },
+    "END_MOVE": {
+      "type": "int",
+      "initial": 3,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #3",
+      "origin": {
+        "kind": "step",
+        "stepId": "vjon0paz",
+        "stepNumber": 3
+      }
+    },
+    "_re_HOME": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_re_GO_DOWN": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "AxisPosOk": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto",
+      "table": "PtP"
+    },
+    "AxisSpFixed": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto",
+      "table": "PtP"
+    },
+    "Patern": {
+      "type": "int",
+      "initial": 0,
+      "origin": "auto"
+    },
+    "_re_GO_UP": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "EnableAxis": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto",
+      "table": "PtP"
+    }
+  },
+  "varTables": [
+    "Input",
+    "Output",
+    "PtP",
+    "Constants",
+    "Timers",
+    "steps"
+  ],
+  "triggers": [],
+  "panels": [],
+  "exportPages": [
+    {
+      "id": "ixlzm439",
+      "format": "a4",
+      "orientation": "portrait",
+      "x": 560,
+      "y": -500,
+      "scale": 1.85,
+      "label": "PLATFORM_WRAPPER"
+    }
+  ],
+  "exportSettings": {
+    "header": "PLATFORM_WRAPPER",
+    "footer": "{page} / {total}",
+    "showHeader": true,
+    "showFooter": false
+  },
+  "conditionSyntax": "scl"
+}
