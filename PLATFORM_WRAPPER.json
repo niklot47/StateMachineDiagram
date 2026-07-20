@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "PLATFORM_WRAPPER_v20",
+  "name": "PLATFORM_WRAPPER",
   "steps": [
     {
       "divergenceType": "OR",
@@ -311,12 +311,6 @@
           "expr": "STEP_NUMBER = END_MOVE"
         },
         {
-          "qualifier": "SET_INT",
-          "target": "Timer_EnableAxis.IN",
-          "value": 0,
-          "expr": "STEP_NUMBER = ARM_HOME\nOR STEP_NUMBER = ARM_UP\nOR STEP_NUMBER = ARM_DOWN"
-        },
-        {
           "qualifier": "NOTE",
           "target": " === RISING_EDGE ==="
         },
@@ -410,21 +404,21 @@
       "fromId": "aqeplic2",
       "toStepId": null,
       "toJumpId": "k3jqk3mz",
-      "condition": "Timer_EnableAxis.Q"
+      "condition": "AxisEnable"
     },
     {
       "id": "2x6jr1le",
       "fromId": "cnaw5zlj",
       "toStepId": null,
       "toJumpId": "bxaa6ozh",
-      "condition": "Timer_EnableAxis.Q"
+      "condition": "AxisEnable"
     },
     {
       "id": "70houskg",
       "fromId": "wfr4zspx",
       "toStepId": null,
       "toJumpId": "qy6kn4rk",
-      "condition": "Timer_EnableAxis.Q"
+      "condition": "AxisEnable"
     }
   ],
   "jumpTargets": [
