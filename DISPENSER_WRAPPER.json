@@ -33,6 +33,10 @@
           "target": "ExecuteMode",
           "value": 0,
           "expr": "false"
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "\nIF _re_RESET THEN\n    #AT_HOME := FALSE;\nEND_IF"
         }
       ]
     },
@@ -84,7 +88,7 @@
       "name": "ARM_STEP",
       "isInitial": false,
       "x": 542,
-      "y": 602,
+      "y": 642,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -126,8 +130,8 @@
       "number": 100,
       "name": "ON_ANY_SCAN_STRT",
       "isInitial": false,
-      "x": 502,
-      "y": 142,
+      "x": 582,
+      "y": 162,
       "actions": [
         {
           "qualifier": "NOTE",
@@ -142,8 +146,8 @@
           "target": "ERR := AxisError;\n\nTimer_To_Idle.IN := STEP_NUMBER = END_HOME \n\nTimer_AxisPoseOk_Delay.IN := STEP_NUMBER = FIRE_HOME\nOR STEP_NUMBER = FIRE_NEAREST_STEP\nOR STEP_NUMBER = FIRE_STEP\n"
         },
         {
-          "qualifier": "NOTE",
-          "target": " === STEP_SIZE ===\nStepSize := REAL_TO_DINT(360.0 / INT_TO_REAL(#CELL) * DINT_TO_REAL(#POS_FACTOR));"
+          "qualifier": "EXPR",
+          "target": "// === STEP_SIZE ===\nStepSize := REAL_TO_DINT(360.0 / INT_TO_REAL(#CELL) * DINT_TO_REAL(#POS_FACTOR));\n"
         }
       ]
     },
@@ -254,7 +258,7 @@
       "name": "FIRE_STEP",
       "isInitial": false,
       "x": 542,
-      "y": 942,
+      "y": 962,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -345,7 +349,7 @@
       "fromId": "owvrxvvy",
       "toStepId": "4zhp03h4",
       "toJumpId": null,
-      "condition": "true"
+      "condition": "AxisEnabled"
     },
     {
       "fromSinkId": "oxiuii2v",
@@ -519,7 +523,7 @@
     },
     {
       "id": "txo7b9m1",
-      "name": "",
+      "name": "END_MOVE",
       "color": "#3b82f6",
       "members": [
         {
@@ -882,6 +886,26 @@
       "origin": "auto"
     },
     "MOD": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_re_RESET": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "REAL_TO_DINT": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "INT_TO_REAL": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "AxisEnabled": {
       "type": "bool",
       "initial": false,
       "origin": "auto"
