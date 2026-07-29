@@ -983,7 +983,7 @@
       "fromId": "9ivkm69y",
       "toStepId": "0ijcs3m3",
       "toJumpId": null,
-      "condition": "PC_SET_ZERO_OFFSET"
+      "condition": "PC_SET_ZERO_OFFSET \nAND Sicurezze_Attivate"
     },
     {
       "id": "a8nzhas1",
