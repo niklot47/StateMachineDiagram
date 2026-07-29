@@ -53,7 +53,7 @@
       "number": 6,
       "name": "IDLE",
       "isInitial": false,
-      "x": 782,
+      "x": 802,
       "y": 202,
       "actions": [
         {
@@ -158,7 +158,7 @@
       "number": 7,
       "name": "PAUSE_STEP",
       "isInitial": false,
-      "x": 782,
+      "x": 762,
       "y": 582,
       "actions": [
         {
@@ -673,8 +673,8 @@
           "value": 0
         },
         {
-          "qualifier": "NOTE",
-          "target": "Need a homing force stop here!"
+          "qualifier": "EXPR",
+          "target": "Dispenser_Stop_Homing := TRUE;"
         }
       ],
       "divergenceType": "OR",
@@ -694,7 +694,7 @@
       "actions": [
         {
           "qualifier": "EXPR",
-          "target": "Platform_Down := FALSE;\nDisposer_Dispose := True;"
+          "target": "Platform_Down := FALSE;\nDisposer_Dispose := True;\nDispenser_Stop_Homing := TRUE;"
         }
       ],
       "divergenceType": "OR",
@@ -969,7 +969,7 @@
       "fromId": "rt7mthzy",
       "toStepId": null,
       "toJumpId": "ewes7uqv",
-      "condition": "MAINTENANCE"
+      "condition": "PC_MAINTENANCE"
     },
     {
       "id": "uvfleajz",
@@ -990,7 +990,7 @@
       "fromId": "9ivkm69y",
       "toStepId": null,
       "toJumpId": "hrjd4iub",
-      "condition": "PC_MAINTENANCE"
+      "condition": "NOT PC_MAINTENANCE"
     }
   ],
   "jumpTargets": [
@@ -1069,14 +1069,14 @@
     {
       "id": "czcqy09m",
       "x": 1000,
-      "y": 1400,
+      "y": 1420,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "ewes7uqv",
-      "x": 1000,
+      "x": 1040,
       "y": 580,
       "targetNumber": 61,
       "convergenceType": "OR",
@@ -1761,11 +1761,6 @@
       "initial": false,
       "origin": "auto"
     },
-    "MAINTENANCE": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto"
-    },
     "Dispenser_ZeroOffset": {
       "type": "bool",
       "initial": false,
@@ -1792,6 +1787,11 @@
       "origin": "auto"
     },
     "PC_MAINTENANCE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Dispenser_Stop_Homing": {
       "type": "bool",
       "initial": false,
       "origin": "auto"
