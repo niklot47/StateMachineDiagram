@@ -87,7 +87,7 @@
       "number": 31,
       "name": "ARM_STEP",
       "isInitial": false,
-      "x": 542,
+      "x": 562,
       "y": 642,
       "actions": [
         {
@@ -163,7 +163,7 @@
       "name": "ARM_HOME",
       "isInitial": false,
       "x": -218,
-      "y": 1162,
+      "y": 1142,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -183,8 +183,8 @@
       "number": 21,
       "name": "ARM_NEAREST_STEP",
       "isInitial": false,
-      "x": 302,
-      "y": 1162,
+      "x": 322,
+      "y": 1142,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -210,7 +210,7 @@
       "name": "FIRE_HOME",
       "isInitial": false,
       "x": -218,
-      "y": 1282,
+      "y": 1242,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -231,8 +231,8 @@
       "number": 22,
       "name": "FIRE_NEAREST_STEP",
       "isInitial": false,
-      "x": 302,
-      "y": 1462,
+      "x": 322,
+      "y": 1482,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -257,8 +257,8 @@
       "number": 32,
       "name": "FIRE_STEP",
       "isInitial": false,
-      "x": 542,
-      "y": 962,
+      "x": 562,
+      "y": 942,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -283,8 +283,8 @@
       "number": 4,
       "name": "END_MOVE",
       "isInitial": false,
-      "x": -138,
-      "y": 1502,
+      "x": 422,
+      "y": 1742,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -299,6 +299,45 @@
           "expr": "true"
         }
       ]
+    },
+    {
+      "id": "np4tsqff",
+      "number": 41,
+      "name": "ARM_ZERO",
+      "isInitial": false,
+      "isFinal": false,
+      "x": -198,
+      "y": 1442,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "BUSY := True;\nAT_HOME := False;\nModePos := 5;\nEnableAxis := True;",
+          "value": 5
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "otzgk8fl",
+      "number": 101,
+      "name": "FIRE_ZERO",
+      "isInitial": false,
+      "isFinal": false,
+      "x": -198,
+      "y": 1602,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "ExecuteMode := true;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
     }
   ],
   "transitions": [
@@ -386,29 +425,50 @@
       "toStepId": null,
       "toJumpId": "r8so43jq",
       "condition": "AxisPosOk AND AxisSpFixed \nAND Timer_AxisPoseOk_Delay.Q"
+    },
+    {
+      "id": "t6dehopc",
+      "fromId": "ici5a9a1",
+      "toStepId": null,
+      "toJumpId": "lezfvl8r",
+      "condition": "_re_ZERO"
+    },
+    {
+      "id": "r82xvx7u",
+      "fromId": "np4tsqff",
+      "toStepId": "otzgk8fl",
+      "toJumpId": null,
+      "condition": "AxisEnable"
+    },
+    {
+      "id": "088zuols",
+      "fromId": "otzgk8fl",
+      "toStepId": null,
+      "toJumpId": "x8d6hpmb",
+      "condition": "AxisPosOk AND AxisSpFixed \nAND Timer_AxisPoseOk_Delay.Q"
     }
   ],
   "jumpTargets": [
     {
       "id": "r8so43jq",
-      "x": 560,
-      "y": 1100,
+      "x": 580,
+      "y": 1080,
       "targetNumber": 4,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "ykh78qbp",
-      "x": 320,
-      "y": 1660,
+      "x": 340,
+      "y": 1680,
       "targetNumber": 4,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "l1x3h0t9",
-      "x": -120,
-      "y": 1640,
+      "x": 440,
+      "y": 1880,
       "targetNumber": 0,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -416,7 +476,23 @@
     {
       "id": "ia15dypz",
       "x": -200,
-      "y": 1420,
+      "y": 1380,
+      "targetNumber": 4,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "lezfvl8r",
+      "x": 340,
+      "y": 700,
+      "targetNumber": 41,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "x8d6hpmb",
+      "x": -180,
+      "y": 1760,
       "targetNumber": 4,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -537,6 +613,33 @@
         {
           "kind": "transition",
           "id": "3jjllf7s"
+        }
+      ]
+    },
+    {
+      "id": "fikg8w7w",
+      "name": "ZERO_OFFSET",
+      "color": "#8b5cf6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "np4tsqff"
+        },
+        {
+          "kind": "step",
+          "id": "otzgk8fl"
+        },
+        {
+          "kind": "jump",
+          "id": "x8d6hpmb"
+        },
+        {
+          "kind": "transition",
+          "id": "r82xvx7u"
+        },
+        {
+          "kind": "transition",
+          "id": "088zuols"
         }
       ]
     }
@@ -798,6 +901,32 @@
       "origin": "manual",
       "table": "PtP"
     },
+    "ARM_ZERO": {
+      "type": "int",
+      "initial": 41,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #41",
+      "origin": {
+        "kind": "step",
+        "stepId": "np4tsqff",
+        "stepNumber": 41
+      }
+    },
+    "FIRE_ZERO": {
+      "type": "int",
+      "initial": 101,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #101",
+      "origin": {
+        "kind": "step",
+        "stepId": "otzgk8fl",
+        "stepNumber": 101
+      }
+    },
     "Timer_AxisPoseOk_Delay": {
       "type": "timer",
       "preset": 1000,
@@ -906,6 +1035,11 @@
       "origin": "auto"
     },
     "AxisEnabled": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "_re_ZERO": {
       "type": "bool",
       "initial": false,
       "origin": "auto"
