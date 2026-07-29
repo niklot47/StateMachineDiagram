@@ -449,7 +449,7 @@
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
       "x": 482,
-      "y": 1342,
+      "y": 1322,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -556,11 +556,11 @@
       "isFinal": true,
       "hookKind": null,
       "id": "dtal5c5b",
-      "number": 18,
+      "number": 20,
       "name": "CRITICAL_ERROR",
       "isInitial": false,
-      "x": 682,
-      "y": 1762,
+      "x": 702,
+      "y": 1802,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -737,7 +737,7 @@
       "name": "MAINTENANCE_STATE",
       "isInitial": false,
       "isFinal": false,
-      "x": 1082,
+      "x": 1102,
       "y": 1122,
       "actions": [
         {
@@ -759,12 +759,50 @@
       "name": "ZERO_OFFSET",
       "isInitial": false,
       "isFinal": false,
-      "x": 982,
+      "x": 1002,
       "y": 1262,
       "actions": [
         {
           "qualifier": "EXPR",
           "target": "Dispenser_Set_ZeroOffset := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "0szbq3jv",
+      "number": 18,
+      "name": "ACKN_ALL",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 482,
+      "y": 1722,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Acknowledge_All := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "fkg2e5ja",
+      "number": 19,
+      "name": "ISSUE",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 482,
+      "y": 1842,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Disposer_Issue := TRUE;\nAcknowledge_All := FALSE;"
         }
       ],
       "divergenceType": "OR",
@@ -865,13 +903,6 @@
       "toStepId": "mnone66b",
       "toJumpId": null,
       "condition": "Axis_Error"
-    },
-    {
-      "id": "w8slatb9",
-      "fromId": "mnone66b",
-      "toStepId": null,
-      "toJumpId": "ondmfznd",
-      "condition": "Axis_Error_Reset\nAND ISSUE_COUNTER < 5 \nAND Sicurezze_Attivate"
     },
     {
       "id": "iqhmxdt6",
@@ -991,13 +1022,34 @@
       "toStepId": null,
       "toJumpId": "hrjd4iub",
       "condition": "NOT PC_MAINTENANCE"
+    },
+    {
+      "id": "9g39rg4g",
+      "fromId": "mnone66b",
+      "toStepId": "0szbq3jv",
+      "toJumpId": null,
+      "condition": "Timer_Error_Reset.Q\nAND ISSUE_COUNTER < 5 \n"
+    },
+    {
+      "id": "n6fxk0kx",
+      "fromId": "0szbq3jv",
+      "toStepId": "fkg2e5ja",
+      "toJumpId": null,
+      "condition": "NOT Axis_Error"
+    },
+    {
+      "id": "cemfpw3a",
+      "fromId": "fkg2e5ja",
+      "toStepId": null,
+      "toJumpId": "ondmfznd",
+      "condition": "Disposer_At_Home\nAND NOT Disposer_Busy"
     }
   ],
   "jumpTargets": [
     {
       "id": "7c4a5gd0",
       "x": 460,
-      "y": 1180,
+      "y": 1160,
       "targetNumber": 15,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1037,7 +1089,7 @@
     {
       "id": "58vpgymm",
       "x": 680,
-      "y": 1020,
+      "y": 1000,
       "targetNumber": 8,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1045,7 +1097,7 @@
     {
       "id": "ondmfznd",
       "x": 500,
-      "y": 1780,
+      "y": 1980,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1068,7 +1120,7 @@
     },
     {
       "id": "czcqy09m",
-      "x": 1000,
+      "x": 1020,
       "y": 1420,
       "targetNumber": 1,
       "convergenceType": "OR",
@@ -1314,15 +1366,15 @@
     },
     "CRITICAL_ERROR": {
       "type": "int",
-      "initial": 18,
+      "initial": 20,
       "isAuto": true,
       "readOnly": true,
       "table": "steps",
-      "comment": "Auto: step #18",
+      "comment": "Auto: step #20",
       "origin": {
         "kind": "step",
         "stepId": "dtal5c5b",
-        "stepNumber": 18
+        "stepNumber": 20
       }
     },
     "PAUSE_STEP": {
@@ -1459,6 +1511,38 @@
         "kind": "step",
         "stepId": "0ijcs3m3",
         "stepNumber": 62
+      }
+    },
+    "Timer_Error_Reset": {
+      "type": "timer",
+      "preset": 1000,
+      "origin": "manual",
+      "table": "DB005_State_Machine"
+    },
+    "ACKN_ALL": {
+      "type": "int",
+      "initial": 18,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #18",
+      "origin": {
+        "kind": "step",
+        "stepId": "0szbq3jv",
+        "stepNumber": 18
+      }
+    },
+    "ISSUE": {
+      "type": "int",
+      "initial": 19,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #19",
+      "origin": {
+        "kind": "step",
+        "stepId": "fkg2e5ja",
+        "stepNumber": 19
       }
     },
     "PAUSE": {
@@ -1795,6 +1879,11 @@
       "type": "bool",
       "initial": false,
       "origin": "auto"
+    },
+    "Disposer_Issue": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
     }
   },
   "panels": [],
@@ -1803,7 +1892,7 @@
     {
       "id": "kvpvktde",
       "x": 500,
-      "y": 1240,
+      "y": 1220,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
@@ -2134,7 +2223,7 @@
       "format": "a4",
       "orientation": "portrait",
       "x": -140,
-      "y": -560,
+      "y": -500,
       "scale": 2.8,
       "label": "INIT_AND_SEMAFOR"
     }
