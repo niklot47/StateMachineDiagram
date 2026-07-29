@@ -130,8 +130,8 @@
       "number": 100,
       "name": "ON_ANY_SCAN_STRT",
       "isInitial": false,
-      "x": 582,
-      "y": 162,
+      "x": 1242,
+      "y": 222,
       "actions": [
         {
           "qualifier": "NOTE",
@@ -1059,9 +1059,9 @@
       "id": "m608xmml",
       "format": "a4",
       "orientation": "portrait",
-      "x": -300,
-      "y": -20,
-      "scale": 2.4,
+      "x": -280,
+      "y": 80,
+      "scale": 2.3,
       "label": "DISPENSER_WRAPPER"
     }
   ],
