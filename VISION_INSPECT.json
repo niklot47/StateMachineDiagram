@@ -2223,8 +2223,8 @@
       "format": "a4",
       "orientation": "portrait",
       "x": -140,
-      "y": -500,
-      "scale": 2.8,
+      "y": -400,
+      "scale": 2.75,
       "label": "INIT_AND_SEMAFOR"
     }
   ],
