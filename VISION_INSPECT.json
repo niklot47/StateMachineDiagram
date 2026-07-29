@@ -14,7 +14,7 @@
       "name": "START_UP",
       "isInitial": false,
       "x": 122,
-      "y": -298,
+      "y": -258,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -53,8 +53,8 @@
       "number": 6,
       "name": "IDLE",
       "isInitial": false,
-      "x": 762,
-      "y": 162,
+      "x": 782,
+      "y": 202,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -158,8 +158,8 @@
       "number": 7,
       "name": "PAUSE_STEP",
       "isInitial": false,
-      "x": 762,
-      "y": 542,
+      "x": 782,
+      "y": 582,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -268,7 +268,7 @@
       "number": 12,
       "name": "DISPOSE",
       "isInitial": false,
-      "x": -18,
+      "x": -38,
       "y": 1282,
       "actions": [
         {
@@ -308,7 +308,7 @@
       "number": 13,
       "name": "PHOTO",
       "isInitial": false,
-      "x": -18,
+      "x": -38,
       "y": 1542,
       "actions": [
         {
@@ -357,7 +357,7 @@
       "number": 14,
       "name": "DISPOSE_END",
       "isInitial": false,
-      "x": -18,
+      "x": -38,
       "y": 1762,
       "actions": [
         {
@@ -448,8 +448,8 @@
       "number": 17,
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
-      "x": 502,
-      "y": 1382,
+      "x": 482,
+      "y": 1342,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -545,7 +545,7 @@
       "name": "STATE_MACHINE_INIT",
       "isInitial": true,
       "x": 122,
-      "y": -398,
+      "y": -358,
       "actions": []
     },
     {
@@ -559,8 +559,8 @@
       "number": 18,
       "name": "CRITICAL_ERROR",
       "isInitial": false,
-      "x": 702,
-      "y": 1802,
+      "x": 682,
+      "y": 1762,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -581,8 +581,8 @@
       "number": 100,
       "name": "OnScanStart",
       "isInitial": false,
-      "x": 1382,
-      "y": -458,
+      "x": 1722,
+      "y": -438,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -597,7 +597,7 @@
       "isInitial": false,
       "isFinal": false,
       "x": 122,
-      "y": -158,
+      "y": -118,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -625,7 +625,7 @@
       "isInitial": false,
       "isFinal": false,
       "x": 122,
-      "y": -38,
+      "y": 2,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -645,7 +645,7 @@
       "isInitial": false,
       "isFinal": false,
       "x": 122,
-      "y": 102,
+      "y": 142,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -665,7 +665,7 @@
       "isInitial": false,
       "isFinal": false,
       "x": 262,
-      "y": 262,
+      "y": 302,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -690,7 +690,7 @@
       "isInitial": false,
       "isFinal": false,
       "x": 262,
-      "y": 422,
+      "y": 462,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -715,7 +715,7 @@
       "name": "EMPTYING_START",
       "isInitial": false,
       "x": -38,
-      "y": 302,
+      "y": 322,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -737,7 +737,7 @@
       "name": "MAINTENANCE_STATE",
       "isInitial": false,
       "isFinal": false,
-      "x": 1022,
+      "x": 1082,
       "y": 1122,
       "actions": [
         {
@@ -752,6 +752,25 @@
       "andDivergenceCondition": "",
       "andConvergenceCondition": "",
       "hookKind": null
+    },
+    {
+      "id": "0ijcs3m3",
+      "number": 62,
+      "name": "ZERO_OFFSET",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 982,
+      "y": 1262,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Dispenser_Set_ZeroOffset := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
     }
   ],
   "transitions": [
@@ -946,18 +965,32 @@
       "condition": "Timer_StartUP"
     },
     {
-      "id": "nctymw8y",
-      "fromId": "9ivkm69y",
-      "toStepId": null,
-      "toJumpId": "czcqy09m",
-      "condition": "Dispenser_ZeroOffset_Done\nAND NOT Dispenser_Busy"
-    },
-    {
       "id": "0z2np00w",
       "fromId": "rt7mthzy",
       "toStepId": null,
       "toJumpId": "ewes7uqv",
       "condition": "MAINTENANCE"
+    },
+    {
+      "id": "uvfleajz",
+      "fromId": "0ijcs3m3",
+      "toStepId": null,
+      "toJumpId": "czcqy09m",
+      "condition": "Dispenser_ZeroOffset_Done\nAND NOT Dispenser_Busy\nAND Timer_ZeroOffset.Q\n"
+    },
+    {
+      "id": "9bhpzui3",
+      "fromId": "9ivkm69y",
+      "toStepId": "0ijcs3m3",
+      "toJumpId": null,
+      "condition": "PC_SET_ZERO_OFFSET"
+    },
+    {
+      "id": "a8nzhas1",
+      "fromId": "9ivkm69y",
+      "toStepId": null,
+      "toJumpId": "hrjd4iub",
+      "condition": "PC_MAINTENANCE"
     }
   ],
   "jumpTargets": [
@@ -995,7 +1028,7 @@
     },
     {
       "id": "7twys24j",
-      "x": 0,
+      "x": -20,
       "y": 1920,
       "targetNumber": 7,
       "convergenceType": "OR",
@@ -1003,16 +1036,16 @@
     },
     {
       "id": "58vpgymm",
-      "x": 660,
-      "y": 1000,
+      "x": 680,
+      "y": 1020,
       "targetNumber": 8,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "ondmfznd",
-      "x": 520,
-      "y": 1820,
+      "x": 500,
+      "y": 1780,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1020,7 +1053,7 @@
     {
       "id": "nk8y48b0",
       "x": 280,
-      "y": 560,
+      "y": 600,
       "targetNumber": 4,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1028,24 +1061,32 @@
     {
       "id": "57fdkvtv",
       "x": -20,
-      "y": 440,
+      "y": 460,
       "targetNumber": 6,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "czcqy09m",
-      "x": 1040,
-      "y": 1260,
+      "x": 1000,
+      "y": 1400,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "ewes7uqv",
-      "x": 980,
-      "y": 540,
+      "x": 1000,
+      "y": 580,
       "targetNumber": 61,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "hrjd4iub",
+      "x": 1260,
+      "y": 1260,
+      "targetNumber": 6,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     }
@@ -1388,6 +1429,38 @@
         "stepNumber": 42
       }
     },
+    "MAINTENANCE_STATE": {
+      "type": "int",
+      "initial": 61,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #61",
+      "origin": {
+        "kind": "step",
+        "stepId": "9ivkm69y",
+        "stepNumber": 61
+      }
+    },
+    "Timer_ZeroOffset": {
+      "type": "timer",
+      "preset": 1000,
+      "origin": "manual",
+      "table": "DB005_State_Machine"
+    },
+    "ZERO_OFFSET": {
+      "type": "int",
+      "initial": 62,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #62",
+      "origin": {
+        "kind": "step",
+        "stepId": "0ijcs3m3",
+        "stepNumber": 62
+      }
+    },
     "PAUSE": {
       "type": "bool",
       "initial": false,
@@ -1708,18 +1781,20 @@
       "initial": false,
       "origin": "auto"
     },
-    "MAINTENANCE_STATE": {
-      "type": "int",
-      "initial": 61,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #61",
-      "origin": {
-        "kind": "step",
-        "stepId": "9ivkm69y",
-        "stepNumber": 61
-      }
+    "Dispenser_Set_ZeroOffset": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "PC_SET_ZERO_OFFSET": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "PC_MAINTENANCE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
     }
   },
   "panels": [],
@@ -1727,8 +1802,8 @@
   "sinks": [
     {
       "id": "kvpvktde",
-      "x": 520,
-      "y": 1280,
+      "x": 500,
+      "y": 1240,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
@@ -2007,21 +2082,37 @@
       ]
     },
     {
-      "id": "amkd78cm",
+      "id": "93j0gjw2",
       "name": "MAINTENANCE",
       "color": "#14b8a6",
       "members": [
         {
+          "kind": "transition",
+          "id": "9bhpzui3"
+        },
+        {
           "kind": "step",
-          "id": "9ivkm69y"
+          "id": "0ijcs3m3"
+        },
+        {
+          "kind": "transition",
+          "id": "uvfleajz"
         },
         {
           "kind": "jump",
           "id": "czcqy09m"
         },
         {
+          "kind": "jump",
+          "id": "hrjd4iub"
+        },
+        {
           "kind": "transition",
-          "id": "nctymw8y"
+          "id": "a8nzhas1"
+        },
+        {
+          "kind": "step",
+          "id": "9ivkm69y"
         }
       ]
     }
