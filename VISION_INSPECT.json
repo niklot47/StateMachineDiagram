@@ -449,7 +449,7 @@
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
       "x": 502,
-      "y": 1462,
+      "y": 1382,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -560,7 +560,7 @@
       "name": "CRITICAL_ERROR",
       "isInitial": false,
       "x": 702,
-      "y": 1882,
+      "y": 1802,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -581,8 +581,8 @@
       "number": 100,
       "name": "OnScanStart",
       "isInitial": false,
-      "x": 2382,
-      "y": 422,
+      "x": 1382,
+      "y": -458,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -734,10 +734,10 @@
     {
       "id": "9ivkm69y",
       "number": 61,
-      "name": "NAINTENANCE",
+      "name": "MAINTENANCE_STATE",
       "isInitial": false,
       "isFinal": false,
-      "x": 1002,
+      "x": 1022,
       "y": 1122,
       "actions": [
         {
@@ -1012,7 +1012,7 @@
     {
       "id": "ondmfznd",
       "x": 520,
-      "y": 1900,
+      "y": 1820,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1035,7 +1035,7 @@
     },
     {
       "id": "czcqy09m",
-      "x": 1020,
+      "x": 1040,
       "y": 1260,
       "targetNumber": 1,
       "convergenceType": "OR",
@@ -1388,19 +1388,6 @@
         "stepNumber": 42
       }
     },
-    "NAINTENANCE": {
-      "type": "int",
-      "initial": 61,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #61",
-      "origin": {
-        "kind": "step",
-        "stepId": "9ivkm69y",
-        "stepNumber": 61
-      }
-    },
     "PAUSE": {
       "type": "bool",
       "initial": false,
@@ -1720,6 +1707,19 @@
       "type": "bool",
       "initial": false,
       "origin": "auto"
+    },
+    "MAINTENANCE_STATE": {
+      "type": "int",
+      "initial": 61,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #61",
+      "origin": {
+        "kind": "step",
+        "stepId": "9ivkm69y",
+        "stepNumber": 61
+      }
     }
   },
   "panels": [],
@@ -1728,7 +1728,7 @@
     {
       "id": "kvpvktde",
       "x": 520,
-      "y": 1360,
+      "y": 1280,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
