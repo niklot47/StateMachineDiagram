@@ -13,14 +13,20 @@
       "number": 1,
       "name": "START_UP",
       "isInitial": false,
-      "x": 982,
-      "y": -358,
+      "x": 122,
+      "y": -298,
       "actions": [
         {
           "qualifier": "SET_INT",
-          "target": "AXIS_ERROR_RESET",
+          "target": "Axis_Error_Reset",
           "value": 0,
           "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Enable_All_Wrappers",
+          "value": 0,
+          "expr": "true"
         },
         {
           "qualifier": "SET_INT",
@@ -30,9 +36,9 @@
         },
         {
           "qualifier": "SET_INT",
-          "target": "Enable_All_Wrappers",
+          "target": "Dispenser_ZeroOffset",
           "value": 0,
-          "expr": "true"
+          "expr": "false"
         }
       ]
     },
@@ -47,8 +53,8 @@
       "number": 6,
       "name": "IDLE",
       "isInitial": false,
-      "x": 862,
-      "y": 222,
+      "x": 762,
+      "y": 162,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -134,6 +140,10 @@
           "qualifier": "SET_INT",
           "target": "ISSUE_COUNTER",
           "value": 0
+        },
+        {
+          "qualifier": "EXPR",
+          "target": "Init_Cycle := NOT Init_Compleat;"
         }
       ]
     },
@@ -148,7 +158,7 @@
       "number": 7,
       "name": "PAUSE_STEP",
       "isInitial": false,
-      "x": 862,
+      "x": 762,
       "y": 542,
       "actions": [
         {
@@ -170,8 +180,8 @@
       "number": 15,
       "name": "UNLOAD_STEP",
       "isInitial": false,
-      "x": 1122,
-      "y": 682,
+      "x": 1082,
+      "y": 722,
       "actions": [
         {
           "qualifier": "INC",
@@ -203,7 +213,7 @@
       "name": "COLLECTION_END",
       "isInitial": false,
       "x": -18,
-      "y": 1102,
+      "y": 1122,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -224,8 +234,8 @@
       "number": 16,
       "name": "END_CYCLE_STEP",
       "isInitial": false,
-      "x": 1222,
-      "y": 942,
+      "x": 1182,
+      "y": 902,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -259,7 +269,7 @@
       "name": "DISPOSE",
       "isInitial": false,
       "x": -18,
-      "y": 1262,
+      "y": 1282,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -299,7 +309,7 @@
       "name": "PHOTO",
       "isInitial": false,
       "x": -18,
-      "y": 1502,
+      "y": 1542,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -348,7 +358,7 @@
       "name": "DISPOSE_END",
       "isInitial": false,
       "x": -18,
-      "y": 1682,
+      "y": 1762,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -378,74 +388,12 @@
       "andConvergenceCondition": "",
       "isFinal": false,
       "hookKind": null,
-      "id": "j4aacbbx",
-      "number": 3,
-      "name": "DISPENSER_AND_PLATFORM_HOMING",
-      "isInitial": false,
-      "x": 982,
-      "y": -218,
-      "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "Platform_Homing",
-          "value": 0,
-          "expr": "true"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Dispenser_Homing",
-          "value": 0,
-          "expr": "true"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Acknowledge_All",
-          "value": 0,
-          "expr": "false"
-        }
-      ]
-    },
-    {
-      "divergenceType": "OR",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
-      "id": "6aze3uqj",
-      "number": 5,
-      "name": "EMPTYING_START",
-      "isInitial": false,
-      "x": 862,
-      "y": 102,
-      "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "Disposer_Homing",
-          "value": 0,
-          "expr": "false"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Disposer_Emptying",
-          "value": 0,
-          "expr": "true"
-        }
-      ]
-    },
-    {
-      "divergenceType": "OR",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
       "id": "3sr227mc",
       "number": 8,
       "name": "COLLECTION_START",
       "isInitial": false,
       "x": 122,
-      "y": 682,
+      "y": 722,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -473,7 +421,7 @@
       "name": "COLLECTION_DELAY",
       "isInitial": false,
       "x": 122,
-      "y": 802,
+      "y": 842,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -500,8 +448,8 @@
       "number": 17,
       "name": "ON_AXIS_ERROR",
       "isInitial": false,
-      "x": 1002,
-      "y": 1262,
+      "x": 502,
+      "y": 1462,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -593,11 +541,11 @@
       "isFinal": false,
       "hookKind": null,
       "id": "r4uxl457",
-      "number": 35,
+      "number": 0,
       "name": "STATE_MACHINE_INIT",
       "isInitial": true,
-      "x": 982,
-      "y": -498,
+      "x": 122,
+      "y": -398,
       "actions": []
     },
     {
@@ -611,46 +559,12 @@
       "number": 18,
       "name": "CRITICAL_ERROR",
       "isInitial": false,
-      "x": 1242,
-      "y": 1682,
+      "x": 702,
+      "y": 1882,
       "actions": [
         {
           "qualifier": "SET_INT",
           "target": "Critical_Erorr",
-          "value": 0,
-          "expr": "true"
-        }
-      ]
-    },
-    {
-      "divergenceType": "OR",
-      "convergenceType": "OR",
-      "andDivergenceCondition": "",
-      "andConvergenceCondition": "",
-      "isFinal": false,
-      "hookKind": null,
-      "id": "itoclqlh",
-      "number": 4,
-      "name": "DISPOSER_HOMING",
-      "isInitial": false,
-      "x": 982,
-      "y": -78,
-      "actions": [
-        {
-          "qualifier": "SET_INT",
-          "target": "Platform_Homing",
-          "value": 0,
-          "expr": "false"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Dispenser_Homing",
-          "value": 0,
-          "expr": "false"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Disposer_Homing",
           "value": 0,
           "expr": "true"
         }
@@ -667,14 +581,177 @@
       "number": 100,
       "name": "OnScanStart",
       "isInitial": false,
-      "x": 2,
-      "y": -298,
+      "x": 2382,
+      "y": 422,
       "actions": [
         {
           "qualifier": "EXPR",
           "target": "// === TIMERS ===\n\nTimer_StartUP.IN := STEP_NUMBER = START_UP;\n\nCollection_Timer.IN := STEP_NUMBER = COLLECTION_START\n                    OR STEP_NUMBER = COLLECTION_DELAY\n                    OR STEP_NUMBER = RESET_DISPENSER\n\nCollection_Step_Delay_Timer.IN := STEP_NUMBER = COLLECTION_DELAY\n\n// === EVENTS ===\n\nLid_Is_Open := NOT Sicurezze_Attivate AND NOT Tramoggia_Assente AND NOT Emergenza;\n\nLast_Pill_Recived := (PILL_MAX_NUMBER <> 0 AND PILL_MAX_NUMBER <= PILL_COUNT) \n                  OR (PILL_MAX_NUMBER = 0 AND Collection_Timer);\n\nTimeout_Ciclo := PILL_MAX_NUMBER <> 0 AND Collection_Timer;\n\nTimer_Flashing_On.IN := STEP_NUMBER = FLASHING_ON\n\nTimer_Flashing_Off.IN := STEP_NUMBER = FLASHING_OFF\n\n// === SEMAFORI ===\n\nTimer_Flash_Off.IN := NOT Timer_Flash_On.Q;\nTimer_Flash_On.IN := Timer_Flash_Off.Q;\n\n#_Flash := Timer_Flash_Off.Q AND NOT Timer_Flash_On.Q;\n\n\nSemaforo_Blu := NOT Sicurezze_Attivate \n            OR (Flash AND (NOT PC_Acceso OR Timeout_Ciclo));\n\nSemaforo_Verde := (NOT PAUSE AND RUNNING AND NOT UNLOAD) \n               OR (Flash AND UNLOAD)\n\nSemaforo_Rosso := Emergenza \n               OR Critical_Erorr \n               OR Lid_Is_Open \n               OR Tramoggia_Assente \n               OR ( Flash AND ((PC_Acceso AND NOT MODBUS_CONNECTION) ON_AXIS_ERROR ON_AXIS_ERROR \n                            OR (NOT PC_Acceso AND MODBUS_CONNECTION)))"
         }
       ]
+    },
+    {
+      "id": "75qo9b0g",
+      "number": 2,
+      "name": "PLATFORM_HOMING",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 122,
+      "y": -158,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Acknowledge_All",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Platform_Homing",
+          "value": 0,
+          "expr": "true"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
+    },
+    {
+      "id": "e4pzx3dr",
+      "number": 3,
+      "name": "DISPOSER_HOMING",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 122,
+      "y": -38,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Platform_Homing := FALSE;\nPlatform_Up := TRUE;\nDisposer_Homing := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
+    },
+    {
+      "id": "6v7sgxhv",
+      "number": 4,
+      "name": "DISPENSER_HOMING",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 122,
+      "y": 102,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Disposer_Homing := FALSE;\nDisposer_Dispose := FALSE;\nDispenser_Homing := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
+    },
+    {
+      "id": "6j67t7wb",
+      "number": 41,
+      "name": "DISPENSER_STOP",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 262,
+      "y": 262,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Platform_Up := FALSE;\nDispenser_Homing := FALSE;\nPill_On_Platform := FALSE;\nPlatform_Down := TRUE;",
+          "value": 0
+        },
+        {
+          "qualifier": "NOTE",
+          "target": "Need a homing force stop here!"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
+    },
+    {
+      "id": "4darlfcb",
+      "number": 42,
+      "name": "EMPTYING_DISPOSE",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 262,
+      "y": 422,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Platform_Down := FALSE;\nDisposer_Dispose := True;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
+    },
+    {
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "isFinal": false,
+      "hookKind": null,
+      "id": "bd1484yl",
+      "number": 5,
+      "name": "EMPTYING_START",
+      "isInitial": false,
+      "x": -38,
+      "y": 302,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Disposer_Homing",
+          "value": 0,
+          "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Disposer_Emptying",
+          "value": 0,
+          "expr": "true"
+        }
+      ]
+    },
+    {
+      "id": "9ivkm69y",
+      "number": 61,
+      "name": "NAINTENANCE",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 1002,
+      "y": 1122,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Dispenser_ZeroOffset",
+          "value": 0,
+          "expr": "Set_ZeroOffset"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": "",
+      "hookKind": null
     }
   ],
   "transitions": [
@@ -683,14 +760,14 @@
       "fromId": "rt7mthzy",
       "toStepId": "r3qf3e9w",
       "toJumpId": null,
-      "condition": "RUNNING AND AxisEnable"
+      "condition": "RUNNING \nOR Init_Cycle"
     },
     {
       "id": "b0kw767t",
       "fromId": "r3qf3e9w",
       "toStepId": "kkmnn9pb",
       "toJumpId": null,
-      "condition": "NOT RUNNING OR UNLOAD OR Tramoggia_Assente OR Last_Pill_Recived"
+      "condition": "(NOT RUNNING AND NOT Init_Cycle) \nOR UNLOAD OR Tramoggia_Assente OR Last_Pill_Recived"
     },
     {
       "id": "axif1bvp",
@@ -725,14 +802,14 @@
       "fromId": "3wamq1a9",
       "toStepId": "sptcabxy",
       "toJumpId": null,
-      "condition": "Disposer_Dispose_Done AND \nNOT Disposer_Busy AND \n(ANALISE_READY OR PILL_COUNT < 3 OR NOT RUNNING\nOR (UNLOAD AND Unload_Buffer > 3))"
+      "condition": "Disposer_Dispose_Done AND \nNOT Disposer_Busy AND \n(ANALISE_READY OR PILL_COUNT < 3 \nOR NOT RUNNING\nOR Init_Cycle\nOR (UNLOAD AND Unload_Buffer > 3))"
     },
     {
       "id": "vhm680ky",
       "fromId": "sptcabxy",
       "toStepId": "jl0piqn4",
       "toJumpId": null,
-      "condition": "PHOTO_CAPTURED OR NOT RUNNING\nOR (UNLOAD AND Unload_Buffer > 2)"
+      "condition": "PHOTO_CAPTURED \nOR NOT RUNNING\nOR Init_Cycle\nOR (UNLOAD AND Unload_Buffer > 2)"
     },
     {
       "id": "cdk9ua33",
@@ -742,18 +819,11 @@
       "condition": "NOT PILL_IS_READY"
     },
     {
-      "id": "jixhu2lt",
-      "fromId": "6aze3uqj",
-      "toStepId": "rt7mthzy",
-      "toJumpId": null,
-      "condition": "Disposer_Emptying_Done AND \nNOT Disposer_Busy"
-    },
-    {
       "id": "qbtwxvra",
       "fromId": "r3qf3e9w",
       "toStepId": "3sr227mc",
       "toJumpId": null,
-      "condition": "RUNNING AND NOT PAUSE AND \nSicurezze_Attivate"
+      "condition": "(RUNNING OR Init_Cycle) AND NOT PAUSE AND \nSicurezze_Attivate"
     },
     {
       "id": "tf5acqyd",
@@ -775,14 +845,14 @@
       "fromId": null,
       "toStepId": "mnone66b",
       "toJumpId": null,
-      "condition": "AXIS_ERROR"
+      "condition": "Axis_Error"
     },
     {
       "id": "w8slatb9",
       "fromId": "mnone66b",
       "toStepId": null,
       "toJumpId": "ondmfznd",
-      "condition": "AXIS_ERROR_RESET \nAND ISSUE_COUNTER < 5 \nAND Sicurezze_Attivate"
+      "condition": "Axis_Error_Reset\nAND ISSUE_COUNTER < 5 \nAND Sicurezze_Attivate"
     },
     {
       "id": "iqhmxdt6",
@@ -797,34 +867,6 @@
       "toStepId": "dtal5c5b",
       "toJumpId": null,
       "condition": "ISSUE_COUNTER >= 5"
-    },
-    {
-      "id": "srw2et3s",
-      "fromId": "j4aacbbx",
-      "toStepId": "itoclqlh",
-      "toJumpId": null,
-      "condition": "Platform_At_Home AND NOT Platform_Busy AND \nDispenser_At_Home AND NOT Dispenser_Busy"
-    },
-    {
-      "id": "vhqdqhdn",
-      "fromId": "6p94gmka",
-      "toStepId": "j4aacbbx",
-      "toJumpId": null,
-      "condition": "Timer_StartUP"
-    },
-    {
-      "id": "hpq03jie",
-      "fromId": "itoclqlh",
-      "toStepId": "6aze3uqj",
-      "toJumpId": null,
-      "condition": "Disposer_At_Home AND \nNOT Disposer_Busy AND \nNOT RUNNING"
-    },
-    {
-      "id": "60k439dc",
-      "fromId": "itoclqlh",
-      "toStepId": null,
-      "toJumpId": "mtyazx2g",
-      "condition": "Disposer_At_Home AND \nNOT Disposer_Busy AND \nRUNNING"
     },
     {
       "id": "9g42h5ed",
@@ -846,12 +888,82 @@
       "toStepId": null,
       "toJumpId": "58vpgymm",
       "condition": "NOT Pill_On_Platform AND \nCollection_Step_Delay_Timer"
+    },
+    {
+      "id": "fa6otx0f",
+      "fromId": "75qo9b0g",
+      "toStepId": "e4pzx3dr",
+      "toJumpId": null,
+      "condition": "Platform_At_Home AND NOT Platform_Busy"
+    },
+    {
+      "id": "ua96bd14",
+      "fromId": "e4pzx3dr",
+      "toStepId": "6v7sgxhv",
+      "toJumpId": null,
+      "condition": "Disposer_At_Home AND NOT Disposer_Busy"
+    },
+    {
+      "id": "jezg2d21",
+      "fromId": "6v7sgxhv",
+      "toStepId": "6j67t7wb",
+      "toJumpId": null,
+      "condition": "Pill_On_Platform"
+    },
+    {
+      "id": "4n1nb0wr",
+      "fromId": "6j67t7wb",
+      "toStepId": "4darlfcb",
+      "toJumpId": null,
+      "condition": "Platform_At_Down\nAND NOT Platform_Busy"
+    },
+    {
+      "id": "firofu25",
+      "fromId": "4darlfcb",
+      "toStepId": null,
+      "toJumpId": "nk8y48b0",
+      "condition": "Disposer_Dispose_Done\nAND NOT Disposer_Busy"
+    },
+    {
+      "id": "xmjmqo3a",
+      "fromId": "6v7sgxhv",
+      "toStepId": "bd1484yl",
+      "toJumpId": null,
+      "condition": "NOT Pill_On_Platform\nAND Dispenser_At_Home\nAND NOT Disposer_Busy"
+    },
+    {
+      "id": "bmzwgeyu",
+      "fromId": "bd1484yl",
+      "toStepId": null,
+      "toJumpId": "57fdkvtv",
+      "condition": "Disposer_Emptying_Done AND \nNOT Disposer_Busy"
+    },
+    {
+      "id": "nam3qpjy",
+      "fromId": "6p94gmka",
+      "toStepId": "75qo9b0g",
+      "toJumpId": null,
+      "condition": "Timer_StartUP"
+    },
+    {
+      "id": "nctymw8y",
+      "fromId": "9ivkm69y",
+      "toStepId": null,
+      "toJumpId": "czcqy09m",
+      "condition": "Dispenser_ZeroOffset_Done\nAND NOT Dispenser_Busy"
+    },
+    {
+      "id": "0z2np00w",
+      "fromId": "rt7mthzy",
+      "toStepId": null,
+      "toJumpId": "ewes7uqv",
+      "condition": "MAINTENANCE"
     }
   ],
   "jumpTargets": [
     {
       "id": "7c4a5gd0",
-      "x": 480,
+      "x": 460,
       "y": 1180,
       "targetNumber": 15,
       "convergenceType": "OR",
@@ -859,24 +971,24 @@
     },
     {
       "id": "rgetbef7",
-      "x": 220,
-      "y": 1200,
+      "x": 200,
+      "y": 1080,
       "targetNumber": 7,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "9yh5d6a8",
-      "x": 1020,
-      "y": 940,
+      "x": 980,
+      "y": 900,
       "targetNumber": 11,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "p0vopdua",
-      "x": 1240,
-      "y": 1080,
+      "x": 1200,
+      "y": 1060,
       "targetNumber": 6,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -884,32 +996,56 @@
     {
       "id": "7twys24j",
       "x": 0,
-      "y": 1820,
+      "y": 1920,
       "targetNumber": 7,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "58vpgymm",
-      "x": 580,
-      "y": 980,
+      "x": 660,
+      "y": 1000,
       "targetNumber": 8,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
       "id": "ondmfznd",
-      "x": 1020,
-      "y": 1700,
+      "x": 520,
+      "y": 1900,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     },
     {
-      "id": "mtyazx2g",
-      "x": 1180,
-      "y": 120,
-      "targetNumber": 7,
+      "id": "nk8y48b0",
+      "x": 280,
+      "y": 560,
+      "targetNumber": 4,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "57fdkvtv",
+      "x": -20,
+      "y": 440,
+      "targetNumber": 6,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "czcqy09m",
+      "x": 1020,
+      "y": 1260,
+      "targetNumber": 1,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "ewes7uqv",
+      "x": 980,
+      "y": 540,
+      "targetNumber": 61,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     }
@@ -1079,7 +1215,7 @@
       "comment": "Auto: step #5",
       "origin": {
         "kind": "step",
-        "stepId": "6aze3uqj",
+        "stepId": "bd1484yl",
         "stepNumber": 5
       }
     },
@@ -1124,15 +1260,15 @@
     },
     "STATE_MACHINE_INIT": {
       "type": "int",
-      "initial": 35,
+      "initial": 0,
       "isAuto": true,
       "readOnly": true,
       "table": "steps",
-      "comment": "Auto: step #35",
+      "comment": "Auto: step #0",
       "origin": {
         "kind": "step",
         "stepId": "r4uxl457",
-        "stepNumber": 35
+        "stepNumber": 0
       }
     },
     "CRITICAL_ERROR": {
@@ -1146,32 +1282,6 @@
         "kind": "step",
         "stepId": "dtal5c5b",
         "stepNumber": 18
-      }
-    },
-    "DISPOSER_HOMING": {
-      "type": "int",
-      "initial": 4,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #4",
-      "origin": {
-        "kind": "step",
-        "stepId": "itoclqlh",
-        "stepNumber": 4
-      }
-    },
-    "DISPENSER_AND_PLATFORM_HOMING": {
-      "type": "int",
-      "initial": 3,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #3",
-      "origin": {
-        "kind": "step",
-        "stepId": "j4aacbbx",
-        "stepNumber": 3
       }
     },
     "PAUSE_STEP": {
@@ -1211,6 +1321,84 @@
         "kind": "step",
         "stepId": "kokin2y3",
         "stepNumber": 16
+      }
+    },
+    "PLATFORM_HOMING": {
+      "type": "int",
+      "initial": 2,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #2",
+      "origin": {
+        "kind": "step",
+        "stepId": "75qo9b0g",
+        "stepNumber": 2
+      }
+    },
+    "DISPOSER_HOMING": {
+      "type": "int",
+      "initial": 3,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #3",
+      "origin": {
+        "kind": "step",
+        "stepId": "e4pzx3dr",
+        "stepNumber": 3
+      }
+    },
+    "DISPENSER_HOMING": {
+      "type": "int",
+      "initial": 4,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #4",
+      "origin": {
+        "kind": "step",
+        "stepId": "6v7sgxhv",
+        "stepNumber": 4
+      }
+    },
+    "DISPENSER_STOP": {
+      "type": "int",
+      "initial": 41,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #41",
+      "origin": {
+        "kind": "step",
+        "stepId": "6j67t7wb",
+        "stepNumber": 41
+      }
+    },
+    "EMPTYING_DISPOSE": {
+      "type": "int",
+      "initial": 42,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #42",
+      "origin": {
+        "kind": "step",
+        "stepId": "4darlfcb",
+        "stepNumber": 42
+      }
+    },
+    "NAINTENANCE": {
+      "type": "int",
+      "initial": 61,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #61",
+      "origin": {
+        "kind": "step",
+        "stepId": "9ivkm69y",
+        "stepNumber": 61
       }
     },
     "PAUSE": {
@@ -1291,23 +1479,11 @@
       "origin": "auto",
       "table": "DB_Motors_Interface"
     },
-    "Platform_At_Home": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto",
-      "table": "DB_Motors_State"
-    },
     "Disposer_Homing": {
       "type": "bool",
       "initial": false,
       "origin": "auto",
       "table": "DB_Motors_Interface"
-    },
-    "Disposer_At_Home": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto",
-      "table": "DB_Motors_State"
     },
     "Disposer_Emptying": {
       "type": "bool",
@@ -1399,18 +1575,6 @@
       "origin": "auto",
       "table": "DB003_Comms"
     },
-    "AXIS_ERROR": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto",
-      "table": "DB_Motors_State"
-    },
-    "AXIS_ERROR_RESET": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto",
-      "table": "DB_Motors_Interface"
-    },
     "Collection_Timer": {
       "type": "timer",
       "origin": "auto",
@@ -1452,22 +1616,12 @@
       "initial": false,
       "origin": "auto"
     },
-    "Dispenser_At_Home": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto"
-    },
     "Disposer_Busy": {
       "type": "bool",
       "initial": false,
       "origin": "auto"
     },
     "Dispenser_Busy": {
-      "type": "bool",
-      "initial": false,
-      "origin": "auto"
-    },
-    "AxisEnable": {
       "type": "bool",
       "initial": false,
       "origin": "auto"
@@ -1511,6 +1665,61 @@
       "type": "int",
       "initial": 0,
       "origin": "auto"
+    },
+    "Axis_Error_Reset": {
+      "type": "int",
+      "initial": 0,
+      "origin": "auto"
+    },
+    "Axis_Error": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Platform_At_Home": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Disposer_At_Home": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Dispenser_At_Home": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Init_Cycle": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Init_Compleat": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "MAINTENANCE": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Dispenser_ZeroOffset": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Dispenser_ZeroOffset_Done": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
+    },
+    "Set_ZeroOffset": {
+      "type": "bool",
+      "initial": false,
+      "origin": "auto"
     }
   },
   "panels": [],
@@ -1518,54 +1727,17 @@
   "sinks": [
     {
       "id": "kvpvktde",
-      "x": 1020,
-      "y": 1160,
+      "x": 520,
+      "y": 1360,
       "sourceMode": "any",
       "sourceStepIds": [
         "6p94gmka",
-        "j4aacbbx",
-        "6aze3uqj",
         "r3qf3e9w",
         "3sr227mc"
       ]
     }
   ],
   "groups": [
-    {
-      "id": "r8zpoz0o",
-      "name": "INITIAL HOMING & EMPTYING",
-      "color": "#3b82f6",
-      "members": [
-        {
-          "kind": "step",
-          "id": "6p94gmka"
-        },
-        {
-          "kind": "step",
-          "id": "j4aacbbx"
-        },
-        {
-          "kind": "step",
-          "id": "6aze3uqj"
-        },
-        {
-          "kind": "jump",
-          "id": "mtyazx2g"
-        },
-        {
-          "kind": "transition",
-          "id": "x06f4ywj"
-        },
-        {
-          "kind": "step",
-          "id": "itoclqlh"
-        },
-        {
-          "kind": "transition",
-          "id": "srw2et3s"
-        }
-      ]
-    },
     {
       "id": "7e4b53t5",
       "name": "Collection",
@@ -1621,6 +1793,14 @@
         {
           "kind": "transition",
           "id": "qh5lag52"
+        },
+        {
+          "kind": "transition",
+          "id": "0z2np00w"
+        },
+        {
+          "kind": "jump",
+          "id": "ewes7uqv"
         }
       ]
     },
@@ -1740,6 +1920,108 @@
         {
           "kind": "transition",
           "id": "5zr1b0nn"
+        }
+      ]
+    },
+    {
+      "id": "f8qb84ij",
+      "name": "INITIAL HOMING & EMPTYING",
+      "color": "#3b82f6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "6p94gmka"
+        },
+        {
+          "kind": "step",
+          "id": "r4uxl457"
+        },
+        {
+          "kind": "step",
+          "id": "75qo9b0g"
+        },
+        {
+          "kind": "step",
+          "id": "e4pzx3dr"
+        },
+        {
+          "kind": "step",
+          "id": "6v7sgxhv"
+        },
+        {
+          "kind": "step",
+          "id": "6j67t7wb"
+        },
+        {
+          "kind": "step",
+          "id": "4darlfcb"
+        },
+        {
+          "kind": "step",
+          "id": "bd1484yl"
+        },
+        {
+          "kind": "jump",
+          "id": "nk8y48b0"
+        },
+        {
+          "kind": "jump",
+          "id": "57fdkvtv"
+        },
+        {
+          "kind": "transition",
+          "id": "iqhmxdt6"
+        },
+        {
+          "kind": "transition",
+          "id": "fa6otx0f"
+        },
+        {
+          "kind": "transition",
+          "id": "ua96bd14"
+        },
+        {
+          "kind": "transition",
+          "id": "jezg2d21"
+        },
+        {
+          "kind": "transition",
+          "id": "4n1nb0wr"
+        },
+        {
+          "kind": "transition",
+          "id": "firofu25"
+        },
+        {
+          "kind": "transition",
+          "id": "xmjmqo3a"
+        },
+        {
+          "kind": "transition",
+          "id": "bmzwgeyu"
+        },
+        {
+          "kind": "transition",
+          "id": "nam3qpjy"
+        }
+      ]
+    },
+    {
+      "id": "amkd78cm",
+      "name": "MAINTENANCE",
+      "color": "#14b8a6",
+      "members": [
+        {
+          "kind": "step",
+          "id": "9ivkm69y"
+        },
+        {
+          "kind": "jump",
+          "id": "czcqy09m"
+        },
+        {
+          "kind": "transition",
+          "id": "nctymw8y"
         }
       ]
     }
