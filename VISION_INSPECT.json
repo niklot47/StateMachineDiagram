@@ -530,6 +530,12 @@
           "target": "PILL_IS_READY",
           "value": 0,
           "expr": "false"
+        },
+        {
+          "qualifier": "SET_INT",
+          "target": "Critical_Erorr",
+          "value": 0,
+          "expr": "false"
         }
       ]
     },
@@ -711,23 +717,15 @@
       "isFinal": false,
       "hookKind": null,
       "id": "bd1484yl",
-      "number": 5,
-      "name": "EMPTYING_START",
+      "number": 51,
+      "name": "EMPTYING_PLATFORM_DOWN",
       "isInitial": false,
       "x": -38,
       "y": 322,
       "actions": [
         {
-          "qualifier": "SET_INT",
-          "target": "Disposer_Homing",
-          "value": 0,
-          "expr": "false"
-        },
-        {
-          "qualifier": "SET_INT",
-          "target": "Disposer_Emptying",
-          "value": 0,
-          "expr": "true"
+          "qualifier": "EXPR",
+          "target": "Dispenser_Homing := FALSE;\nPlatform_Up := FALSE;\nPlatform_Down := TRUE;\nDispenser_Reset := TRUE;"
         }
       ]
     },
@@ -803,6 +801,25 @@
         {
           "qualifier": "EXPR",
           "target": "Disposer_Issue := TRUE;\nAcknowledge_All := FALSE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "unu6kynk",
+      "number": 52,
+      "name": "EMPTYING",
+      "isInitial": false,
+      "isFinal": false,
+      "x": -38,
+      "y": 482,
+      "actions": [
+        {
+          "qualifier": "EXPR",
+          "target": "Disposer_Emptying := TRUE;"
         }
       ],
       "divergenceType": "OR",
@@ -982,13 +999,6 @@
       "condition": "NOT Pill_On_Platform\nAND Dispenser_At_Home\nAND NOT Disposer_Busy"
     },
     {
-      "id": "bmzwgeyu",
-      "fromId": "bd1484yl",
-      "toStepId": null,
-      "toJumpId": "57fdkvtv",
-      "condition": "Disposer_Emptying_Done AND \nNOT Disposer_Busy"
-    },
-    {
       "id": "nam3qpjy",
       "fromId": "6p94gmka",
       "toStepId": "75qo9b0g",
@@ -1043,6 +1053,27 @@
       "toStepId": null,
       "toJumpId": "ondmfznd",
       "condition": "Disposer_At_Home\nAND NOT Disposer_Busy"
+    },
+    {
+      "id": "a65be7gq",
+      "fromId": "bd1484yl",
+      "toStepId": "unu6kynk",
+      "toJumpId": null,
+      "condition": "Platform_At_Down\nAND NOT Platform_Busy"
+    },
+    {
+      "id": "5d2sy1el",
+      "fromId": "unu6kynk",
+      "toStepId": null,
+      "toJumpId": "57fdkvtv",
+      "condition": "Disposer_Emptying_Done AND \nNOT Disposer_Busy"
+    },
+    {
+      "id": "1tgyj3ec",
+      "fromId": "dtal5c5b",
+      "toStepId": null,
+      "toJumpId": "r755hyfh",
+      "condition": "Axis_Error_Reset"
     }
   ],
   "jumpTargets": [
@@ -1113,7 +1144,7 @@
     {
       "id": "57fdkvtv",
       "x": -20,
-      "y": 460,
+      "y": 600,
       "targetNumber": 6,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1139,6 +1170,14 @@
       "x": 1260,
       "y": 1260,
       "targetNumber": 6,
+      "convergenceType": "OR",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "r755hyfh",
+      "x": 720,
+      "y": 1980,
+      "targetNumber": 17,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
     }
@@ -1297,19 +1336,6 @@
         "kind": "step",
         "stepId": "jl0piqn4",
         "stepNumber": 14
-      }
-    },
-    "EMPTYING_START": {
-      "type": "int",
-      "initial": 5,
-      "isAuto": true,
-      "readOnly": true,
-      "table": "steps",
-      "comment": "Auto: step #5",
-      "origin": {
-        "kind": "step",
-        "stepId": "bd1484yl",
-        "stepNumber": 5
       }
     },
     "COLLECTION_START": {
@@ -1884,6 +1910,32 @@
       "type": "bool",
       "initial": false,
       "origin": "auto"
+    },
+    "EMPTYING_PLATFORM_DOWN": {
+      "type": "int",
+      "initial": 51,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #51",
+      "origin": {
+        "kind": "step",
+        "stepId": "bd1484yl",
+        "stepNumber": 51
+      }
+    },
+    "EMPTYING": {
+      "type": "int",
+      "initial": 52,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #52",
+      "origin": {
+        "kind": "step",
+        "stepId": "unu6kynk",
+        "stepNumber": 52
+      }
     }
   },
   "panels": [],
@@ -2162,11 +2214,19 @@
         },
         {
           "kind": "transition",
-          "id": "bmzwgeyu"
+          "id": "nam3qpjy"
+        },
+        {
+          "kind": "step",
+          "id": "unu6kynk"
         },
         {
           "kind": "transition",
-          "id": "nam3qpjy"
+          "id": "5d2sy1el"
+        },
+        {
+          "kind": "transition",
+          "id": "a65be7gq"
         }
       ]
     },
