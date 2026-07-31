@@ -268,7 +268,7 @@
       "number": 12,
       "name": "DISPOSE",
       "isInitial": false,
-      "x": -38,
+      "x": -58,
       "y": 1282,
       "actions": [
         {
@@ -308,7 +308,7 @@
       "number": 13,
       "name": "PHOTO",
       "isInitial": false,
-      "x": -38,
+      "x": -58,
       "y": 1542,
       "actions": [
         {
@@ -357,7 +357,7 @@
       "number": 14,
       "name": "DISPOSE_END",
       "isInitial": false,
-      "x": -38,
+      "x": -58,
       "y": 1762,
       "actions": [
         {
@@ -562,11 +562,11 @@
       "isFinal": true,
       "hookKind": null,
       "id": "dtal5c5b",
-      "number": 20,
+      "number": 171,
       "name": "CRITICAL_ERROR",
       "isInitial": false,
-      "x": 702,
-      "y": 1802,
+      "x": 742,
+      "y": 1702,
       "actions": [
         {
           "qualifier": "SET_INT",
@@ -735,7 +735,7 @@
       "name": "MAINTENANCE_STATE",
       "isInitial": false,
       "isFinal": false,
-      "x": 1102,
+      "x": 1162,
       "y": 1122,
       "actions": [
         {
@@ -757,7 +757,7 @@
       "name": "ZERO_OFFSET",
       "isInitial": false,
       "isFinal": false,
-      "x": 1002,
+      "x": 1042,
       "y": 1262,
       "actions": [
         {
@@ -791,12 +791,12 @@
     },
     {
       "id": "fkg2e5ja",
-      "number": 19,
+      "number": 20,
       "name": "ISSUE",
       "isInitial": false,
       "isFinal": false,
       "x": 482,
-      "y": 1842,
+      "y": 1962,
       "actions": [
         {
           "qualifier": "EXPR",
@@ -820,6 +820,27 @@
         {
           "qualifier": "EXPR",
           "target": "Disposer_Emptying := TRUE;"
+        }
+      ],
+      "divergenceType": "OR",
+      "convergenceType": "OR",
+      "andDivergenceCondition": "",
+      "andConvergenceCondition": ""
+    },
+    {
+      "id": "mxuizvu8",
+      "number": 19,
+      "name": "ISSUE_PLATFORM_DOWN",
+      "isInitial": false,
+      "isFinal": false,
+      "x": 482,
+      "y": 1842,
+      "actions": [
+        {
+          "qualifier": "SET_INT",
+          "target": "Platform_Down",
+          "value": 0,
+          "expr": "true"
         }
       ],
       "divergenceType": "OR",
@@ -1041,13 +1062,6 @@
       "condition": "Timer_Error_Reset.Q\nAND ISSUE_COUNTER < 5 \n"
     },
     {
-      "id": "n6fxk0kx",
-      "fromId": "0szbq3jv",
-      "toStepId": "fkg2e5ja",
-      "toJumpId": null,
-      "condition": "NOT Axis_Error"
-    },
-    {
       "id": "cemfpw3a",
       "fromId": "fkg2e5ja",
       "toStepId": null,
@@ -1074,6 +1088,20 @@
       "toStepId": null,
       "toJumpId": "r755hyfh",
       "condition": "Axis_Error_Reset"
+    },
+    {
+      "id": "ntl13hcq",
+      "fromId": "0szbq3jv",
+      "toStepId": "mxuizvu8",
+      "toJumpId": null,
+      "condition": "NOT Axis_Error"
+    },
+    {
+      "id": "1lrw05jt",
+      "fromId": "mxuizvu8",
+      "toStepId": "fkg2e5ja",
+      "toJumpId": null,
+      "condition": "Platform_At_Down AND \nNOT Platform_Busy"
     }
   ],
   "jumpTargets": [
@@ -1111,7 +1139,7 @@
     },
     {
       "id": "7twys24j",
-      "x": -20,
+      "x": -40,
       "y": 1920,
       "targetNumber": 7,
       "convergenceType": "OR",
@@ -1128,7 +1156,7 @@
     {
       "id": "ondmfznd",
       "x": 500,
-      "y": 1980,
+      "y": 2120,
       "targetNumber": 1,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1151,7 +1179,7 @@
     },
     {
       "id": "czcqy09m",
-      "x": 1020,
+      "x": 1060,
       "y": 1420,
       "targetNumber": 1,
       "convergenceType": "OR",
@@ -1167,7 +1195,7 @@
     },
     {
       "id": "hrjd4iub",
-      "x": 1260,
+      "x": 1300,
       "y": 1260,
       "targetNumber": 6,
       "convergenceType": "OR",
@@ -1175,8 +1203,8 @@
     },
     {
       "id": "r755hyfh",
-      "x": 720,
-      "y": 1980,
+      "x": 760,
+      "y": 1840,
       "targetNumber": 17,
       "convergenceType": "OR",
       "andConvergenceCondition": ""
@@ -1392,15 +1420,15 @@
     },
     "CRITICAL_ERROR": {
       "type": "int",
-      "initial": 20,
+      "initial": 171,
       "isAuto": true,
       "readOnly": true,
       "table": "steps",
-      "comment": "Auto: step #20",
+      "comment": "Auto: step #171",
       "origin": {
         "kind": "step",
         "stepId": "dtal5c5b",
-        "stepNumber": 20
+        "stepNumber": 171
       }
     },
     "PAUSE_STEP": {
@@ -1560,15 +1588,15 @@
     },
     "ISSUE": {
       "type": "int",
-      "initial": 19,
+      "initial": 20,
       "isAuto": true,
       "readOnly": true,
       "table": "steps",
-      "comment": "Auto: step #19",
+      "comment": "Auto: step #20",
       "origin": {
         "kind": "step",
         "stepId": "fkg2e5ja",
-        "stepNumber": 19
+        "stepNumber": 20
       }
     },
     "PAUSE": {
@@ -1935,6 +1963,19 @@
         "kind": "step",
         "stepId": "unu6kynk",
         "stepNumber": 52
+      }
+    },
+    "ISSUE_PLATFORM_DOWN": {
+      "type": "int",
+      "initial": 19,
+      "isAuto": true,
+      "readOnly": true,
+      "table": "steps",
+      "comment": "Auto: step #19",
+      "origin": {
+        "kind": "step",
+        "stepId": "mxuizvu8",
+        "stepNumber": 19
       }
     }
   },
